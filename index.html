@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universidad Nova Iberoamericana | Licenciaturas, Maestrías y Doctorados con Validez Oficial SEP</title>
+  <meta name="description" content="Oferta académica moderna con Validez Oficial SEP (RVOE). Licenciaturas, Maestrías y Doctorados en Educación, Pedagogía, Psicología, Administración, Finanzas, Auditoría y Lengua Inglesa. Modalidades Presencial, En Línea y Ejecutiva." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B192C',
+              navyLight: '#1E3E62',
+              orange: '#FF6500',
+              orangeHover: '#E55800',
+              teal: '#00ADB5',
+              grayBg: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons (Script para íconos vectoriales modernos) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="text-slate-800 bg-[#F8FAFC] antialiased selection:bg-orange-500 selection:text-white">
+
+  <!-- ============================================================
+       1. TOP BAR INFORMATIVA (Promoción y Contacto Rápido)
+  ============================================================ -->
+  <div class="bg-[#0B192C] text-slate-200 text-xs py-2 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#FF6500] text-white animate-pulse">
+          NUEVO INGRESO
+        </span>
+        <span class="hidden sm:inline text-slate-300">
+          Inscripciones abiertas para el ciclo 2026-2027. <strong>Hasta 50% de beca garantizada.</strong>
+        </span>
+        <span class="sm:hidden text-slate-300 font-medium">Beca de hasta 50% en colegiatura</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-slate-300">
+        <a href="https://wa.me/525512345678" target="_blank" class="hover:text-white flex items-center gap-1 text-emerald-400 font-semibold transition">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          <span>(55) 1234-5678</span>
+        </a>
+        <span class="text-slate-600 hidden md:inline">|</span>
+        <a href="#modalidades" class="hover:text-white transition hidden md:inline">Campus y Modalidades</a>
+        <span class="text-slate-600 hidden md:inline">|</span>
+        <button id="open-leads-btn" class="hover:text-orange-400 flex items-center gap-1 transition text-slate-400 hover:text-white" title="Ver base de datos de aspirantes registrados">
+          <i data-lucide="database" class="w-3.5 h-3.5"></i>
+          <span class="hidden lg:inline">Portal Aspirantes (CRM)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. HEADER / NAVBAR PRINCIPAL
+  ============================================================ -->
+  <header class="sticky top-0 z-40 glass-header border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Institucional -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0B192C] to-[#1E3E62] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-orange-400"></i>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-tight text-[#0B192C] block font-heading leading-tight">
+              UNIVERSIDAD <span class="text-[#FF6500]">NOVA</span>
+            </span>
+            <span class="text-[10px] tracking-wider uppercase font-semibold text-slate-500 block">
+              Educación Superior con RVOE SEP
+            </span>
+          </div>
+        </a>
+
+        <!-- Enlaces de Navegación de Escritorio -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-700">
+          <a href="#oferta" class="hover:text-[#FF6500] transition flex items-center gap-1">
+            Oferta Académica
+            <span class="text-[10px] bg-orange-100 text-[#FF6500] font-bold px-1.5 py-0.5 rounded">12</span>
+          </a>
+          <a href="#calculadora" class="hover:text-[#FF6500] transition">Calcula tu Beca</a>
+          <a href="#modalidades" class="hover:text-[#FF6500] transition">Modalidades</a>
+          <a href="#por-que-nosotros" class="hover:text-[#FF6500] transition">¿Por qué estudiar aquí?</a>
+          <a href="#admisiones" class="hover:text-[#FF6500] transition">Admisiones</a>
+          <a href="#preguntas-frecuentes" class="hover:text-[#FF6500] transition">FAQ</a>
+        </nav>
+
+        <!-- CTA Header -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="#calculadora" class="text-xs font-bold text-slate-700 hover:text-orange-600 px-3 py-2 transition">
+            Simular Beca
+          </a>
+          <a 
+            href="#registro-aspirante" 
+            class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] transition shadow-md shadow-orange-500/25 flex items-center gap-2 group"
+          >
+            <span>Inscríbete Hoy</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Botón Menú Móvil -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition focus:outline-none" aria-label="Abrir menú">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
+      <a href="#oferta" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Oferta Académica (12 Programas)</a>
+      <a href="#calculadora" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Calculadora de Becas</a>
+      <a href="#modalidades" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Modalidades de Estudio</a>
+      <a href="#por-que-nosotros" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">¿Por qué elegirnos?</a>
+      <a href="#admisiones" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Proceso de Admisión</a>
+      <a href="#preguntas-frecuentes" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Preguntas Frecuentes</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="#registro-aspirante" class="w-full text-center py-3 bg-[#FF6500] text-white font-bold rounded-xl text-sm shadow">
+          Solicitar Beca / Inscribirme
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       3. HERO SECTION (Estilo UTC / Universidad de Vanguardia)
+  ============================================================ -->
+  <section class="relative gradient-hero text-white pt-12 pb-20 md:py-24 overflow-hidden">
+    <!-- Círculos y patrones luminosos de fondo -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Columna Izquierda: Mensaje Principal y Propuesta de Valor -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Badge RVOE Oficial -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs text-slate-200 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="font-semibold tracking-wide">Programas 100% con Validez Oficial SEP (RVOE)</span>
+          </div>
+
+          <!-- Titular Principal -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] font-heading">
+            Construye tu futuro profesional con <span class="text-gradient-orange">alta empleabilidad</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            Licenciaturas en <strong>Educación, Pedagogía, Psicología, Administración y Lengua Inglesa</strong>; Maestrías y Doctorados diseñados para profesionistas que quieren crecer laboralmente.
+          </p>
+
+          <!-- Ventajas Rápidas -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left">
+            <div class="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+              <div class="text-[#FF6500] font-extrabold text-lg">Hasta 50%</div>
+              <div class="text-xs text-slate-300">Beca garantizada de inicio a fin</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+              <div class="text-cyan-400 font-extrabold text-lg">3 Modalidades</div>
+              <div class="text-xs text-slate-300">En Línea, Presencial y Ejecutiva</div>
+            </div>
+            <div class="col-span-2 sm:col-span-1 bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
+              <div class="text-emerald-400 font-extrabold text-lg">Titulación Ágil</div>
+              <div class="text-xs text-slate-300">Opciones flexibles sin tesis</div>
+            </div>
+          </div>
+
+          <!-- Botones de Acción -->
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+            <a 
+              href="#oferta" 
+              class="px-7 py-3.5 rounded-xl font-bold text-sm bg-[#FF6500] hover:bg-[#E55800] text-white transition shadow-lg shadow-orange-500/30 flex items-center gap-2 group"
+            >
+              <span>Ver los 12 Programas</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+            </a>
+            <a 
+              href="#calculadora" 
+              class="px-6 py-3.5 rounded-xl font-bold text-sm bg-white/10 hover:bg-white/20 text-white border border-white/20 transition backdrop-blur-sm flex items-center gap-2"
+            >
+              <i data-lucide="calculator" class="w-4 h-4 text-orange-400"></i>
+              <span>Calcular mi Colegiatura</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Tarjeta de Captura Rápida de Aspirantes (Hero Lead Box) -->
+        <div class="lg:col-span-5">
+          <div class="bg-white text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
+            <div class="absolute -top-3 -right-3 bg-[#FF6500] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+              ¡Cupo Limitado!
+            </div>
+
+            <div class="mb-5">
+              <h2 class="text-xl font-extrabold text-[#0B192C] font-heading">Calcula tu Beca y Recibe Informes</h2>
+              <p class="text-xs text-slate-500 mt-1">Completa tus datos y un asesor te contactará al instante vía WhatsApp con tu diagnóstico de colegiatura.</p>
+            </div>
+
+            <!-- Formulario Hero -->
+            <form id="hero-quick-form" onsubmit="handleHeroSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Nombre completo *</label>
+                <div class="relative">
+                  <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                  <input 
+                    type="text" 
+                    id="hero-name" 
+                    required 
+                    placeholder="Ej. Laura Morales Gómez"
+                    class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp / Teléfono *</label>
+                  <div class="relative">
+                    <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                    <input 
+                      type="tel" 
+                      id="hero-phone" 
+                      required 
+                      placeholder="55 1234 5678"
+                      class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+                  <div class="relative">
+                    <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                    <input 
+                      type="email" 
+                      id="hero-email" 
+                      required 
+                      placeholder="nombre@gmail.com"
+                      class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Programa de Interés *</label>
+                <select 
+                  id="hero-program" 
+                  required 
+                  class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+                >
+                  <option value="">Selecciona tu programa...</option>
+                  <optgroup label="Licenciaturas">
+                    <option value="Licenciatura en Educación">Licenciatura en Educación</option>
+                    <option value="Licenciatura en Pedagogía">Licenciatura en Pedagogía</option>
+                    <option value="Licenciatura en Psicología">Licenciatura en Psicología</option>
+                    <option value="Licenciatura en Administración">Licenciatura en Administración</option>
+                    <option value="Licenciatura en Lengua Inglesa">Licenciatura en Lengua Inglesa</option>
+                  </optgroup>
+                  <optgroup label="Maestrías">
+                    <option value="Maestría en Educación">Maestría en Educación</option>
+                    <option value="Maestría en Ciencias de la Educación">Maestría en Ciencias de la Educación</option>
+                    <option value="Maestría en Administración (MBA)">Maestría en Administración</option>
+                    <option value="Maestría en Finanzas">Maestría en Finanzas</option>
+                    <option value="Maestría en Auditoría">Maestría en Auditoría</option>
+                  </optgroup>
+                  <optgroup label="Doctorados">
+                    <option value="Doctorado en Educación">Doctorado en Educación</option>
+                    <option value="Doctorado en Alta Dirección">Doctorado en Alta Dirección</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad Preferida</label>
+                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                  <label class="flex items-center justify-center p-2 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:border-orange-500 has-[:checked]:bg-orange-50 has-[:checked]:text-orange-700 font-medium">
+                    <input type="radio" name="hero-modality" value="En Línea" checked class="hidden" />
+                    <span>En Línea</span>
+                  </label>
+                  <label class="flex items-center justify-center p-2 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:border-orange-500 has-[:checked]:bg-orange-50 has-[:checked]:text-orange-700 font-medium">
+                    <input type="radio" name="hero-modality" value="Presencial" class="hidden" />
+                    <span>Presencial</span>
+                  </label>
+                  <label class="flex items-center justify-center p-2 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:border-orange-500 has-[:checked]:bg-orange-50 has-[:checked]:text-orange-700 font-medium">
+                    <input type="radio" name="hero-modality" value="Ejecutiva Sabatina" class="hidden" />
+                    <span>Sabatina</span>
+                  </label>
+                </div>
+              </div>
+
+              <button 
+                type="submit" 
+                class="w-full py-3.5 bg-[#FF6500] hover:bg-[#E55800] text-white font-extrabold rounded-xl text-xs sm:text-sm tracking-wide transition shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2 uppercase"
+              >
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Solicitar mi Beca Inmediata</span>
+              </button>
+
+              <p class="text-[10px] text-slate-400 text-center">
+                🔒 Tus datos están protegidos bajo nuestro Aviso de Privacidad Institucional.
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. STATS & RECONOCIMIENTOS INSTITUCIONALES (CINTILLO)
+  ============================================================ -->
+  <section class="bg-white border-y border-slate-200/80 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl font-extrabold text-[#0B192C] font-heading">+15,000</div>
+          <div class="text-xs text-slate-600 font-medium">Egresados y alumnos activos</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl font-extrabold text-orange-600 font-heading">100%</div>
+          <div class="text-xs text-slate-600 font-medium">Programas con RVOE SEP Federal</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl font-extrabold text-blue-700 font-heading">Hasta 50%</div>
+          <div class="text-xs text-slate-600 font-medium">Beca académica sin perder promedio</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-heading">9 Opciones</div>
+          <div class="text-xs text-slate-600 font-medium">De titulación directa sin tesis</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. OFERTA ACADÉMICA INTERACTIVA (LOS 12 PROGRAMAS)
+  ============================================================ -->
+  <section id="oferta" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Título de Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold mb-3 uppercase tracking-wider">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          Oferta Académica 2026
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight">
+          Elige el programa que impulsará tu vocación
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+          Nuestra oferta abarca licenciaturas, maestrías y doctorados diseñados con los más altos estándares pedagógicos y validez oficial ante la SEP.
+        </p>
+      </div>
+
+      <!-- Barra de Filtros y Búsqueda -->
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Pestañas de Nivel -->
+        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+          <button 
+            data-filter="all" 
+            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-[#FF6500] text-white shadow-sm transition"
+          >
+            Todos (12)
+          </button>
+          <button 
+            data-filter="licenciatura" 
+            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 transition"
+          >
+            Licenciaturas (5)
+          </button>
+          <button 
+            data-filter="maestria" 
+            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 transition"
+          >
+            Maestrías (5)
+          </button>
+          <button 
+            data-filter="doctorado" 
+            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 transition"
+          >
+            Doctorados (2)
+          </button>
+        </div>
+
+        <!-- Buscador en Tiempo Real -->
+        <div class="relative w-full md:w-80">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+          <input 
+            type="text" 
+            id="search-program" 
+            placeholder="Buscar por carrera o materia..." 
+            class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+          />
+        </div>
+
+      </div>
+
+      <!-- Contador dinámico de resultados -->
+      <div class="flex items-center justify-between mb-6 text-xs text-slate-500 px-1">
+        <span id="program-count-badge" class="font-semibold text-slate-700">Cargando oferta académica...</span>
+        <span>Haz clic en <strong>Plan de Estudios</strong> para ver el mapa curricular de cada carrera</span>
+      </div>
+
+      <!-- Grid de Programas Académicos (Poblado por JS) -->
+      <div id="programs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Renderizado dinámico desde js/programs-data.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. SIMULADOR Y CALCULADORA DE BECA Y COLEGIATURA
+  ============================================================ -->
+  <section id="calculadora" class="py-20 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Explicación de Becas -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            Simulador en Tiempo Real
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight">
+            Calcula tu Beca y Colegiatura Mensual
+          </h2>
+
+          <p class="text-slate-600 text-sm leading-relaxed">
+            En la Universidad premiamos tu esfuerzo académico previo. Ingresa tu promedio de bachillerato o licenciatura previa y conoce de forma transparente el descuento directo que recibirás mes con mes.
+          </p>
+
+          <!-- Tabla de Niveles de Beca -->
+          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs">
+            <h4 class="font-bold text-slate-800 mb-2">Escala de Becas Académicas:</h4>
+            <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+              <span class="text-slate-600 font-medium">Promedio 9.5 a 10.0</span>
+              <span class="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">50% de Beca</span>
+            </div>
+            <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+              <span class="text-slate-600 font-medium">Promedio 8.5 a 9.4</span>
+              <span class="font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">40% de Beca</span>
+            </div>
+            <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+              <span class="text-slate-600 font-medium">Promedio 8.0 a 8.4</span>
+              <span class="font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">30% de Beca</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-600 font-medium">Promedio 7.0 a 7.9</span>
+              <span class="font-bold text-slate-800 bg-slate-200 px-2 py-0.5 rounded">20% de Beca</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 text-xs text-slate-500">
+            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+            <span>Sin trámites engorrosos ni estudios socioeconómicos complicados.</span>
+          </div>
+        </div>
+
+        <!-- Calculadora Interactiva (Widget) -->
+        <div class="lg:col-span-7">
+          <div class="bg-gradient-to-br from-[#0B192C] to-[#163B66] text-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden">
+            
+            <div class="absolute -top-24 -right-24 w-60 h-60 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 space-y-6">
+              
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+                <h3 class="text-lg font-bold">Configura tu plan de estudio</h3>
+                <span id="calc-tier-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500 text-white">
+                  50% de Beca de Excelencia
+                </span>
+              </div>
+
+              <!-- Paso 1: Nivel y Programa -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-300 mb-1.5">Nivel Académico</label>
+                  <select 
+                    id="calc-level" 
+                    class="w-full bg-white/10 border border-white/20 text-white rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  >
+                    <option value="licenciatura" class="text-slate-900">Licenciaturas</option>
+                    <option value="maestria" class="text-slate-900">Maestrías</option>
+                    <option value="doctorado" class="text-slate-900">Doctorados</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-300 mb-1.5">Carrera o Posgrado</label>
+                  <select 
+                    id="calc-program" 
+                    class="w-full bg-white/10 border border-white/20 text-white rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  >
+                    <!-- Dinámico -->
+                  </select>
+                </div>
+              </div>
+
+              <!-- Paso 2: Modalidad -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-2">Modalidad de tu preferencia:</label>
+                <div class="grid grid-cols-3 gap-2 text-xs">
+                  <label class="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/15 cursor-pointer hover:bg-white/10 transition has-[:checked]:border-orange-500 has-[:checked]:bg-orange-500/20 text-center">
+                    <input type="radio" name="calc-modality" value="presencial" checked class="hidden" />
+                    <span class="font-bold">Presencial</span>
+                    <span class="text-[10px] text-slate-300">En Campus</span>
+                  </label>
+                  <label class="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/15 cursor-pointer hover:bg-white/10 transition has-[:checked]:border-orange-500 has-[:checked]:bg-orange-500/20 text-center">
+                    <input type="radio" name="calc-modality" value="ejecutiva" class="hidden" />
+                    <span class="font-bold">Ejecutiva</span>
+                    <span class="text-[10px] text-slate-300">Sabatina</span>
+                  </label>
+                  <label class="flex flex-col items-center justify-center p-3 rounded-xl bg-white/5 border border-white/15 cursor-pointer hover:bg-white/10 transition has-[:checked]:border-orange-500 has-[:checked]:bg-orange-500/20 text-center">
+                    <input type="radio" name="calc-modality" value="online" class="hidden" />
+                    <span class="font-bold">100% Online</span>
+                    <span class="text-[10px] text-emerald-300 font-semibold">-12% adicional</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Paso 3: Slider de Promedio -->
+              <div class="bg-white/5 p-4 rounded-2xl border border-white/10">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-slate-200">Tu promedio de ciclo anterior:</span>
+                  <span class="text-2xl font-black text-orange-400 font-heading" id="calc-grade-display">9.5</span>
+                </div>
+                <input 
+                  type="range" 
+                  id="calc-grade-slider" 
+                  min="7.0" 
+                  max="10.0" 
+                  step="0.1" 
+                  value="9.5" 
+                  class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
+                />
+                <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                  <span>7.0 Mínimo</span>
+                  <span>8.5 Mérito</span>
+                  <span>10.0 Excelencia</span>
+                </div>
+              </div>
+
+              <!-- Resultado del Cálculo -->
+              <div class="bg-white text-slate-800 rounded-2xl p-5 shadow-inner">
+                <div class="grid grid-cols-2 gap-4 pb-4 border-b border-slate-200 text-xs">
+                  <div>
+                    <span class="text-slate-500 block">Colegiatura Regular:</span>
+                    <span id="calc-regular-fee" class="line-through text-slate-400 font-bold">$2,850 MXN</span>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-slate-500 block">Descuento de Beca:</span>
+                    <span id="calc-discount-percent" class="font-extrabold text-emerald-600">-50%</span>
+                    <span id="calc-discount-amount" class="text-slate-500 block text-[11px]">(-$1,425 MXN)</span>
+                  </div>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <div>
+                    <span class="text-xs text-slate-500 block">Colegiatura mensual a pagar:</span>
+                    <div class="flex items-baseline gap-1">
+                      <span id="calc-final-fee" class="text-3xl font-black text-[#0B192C] font-heading">$1,425</span>
+                      <span class="text-xs text-slate-600 font-medium">MXN / mes</span>
+                    </div>
+                    <span class="text-[11px] text-emerald-600 font-semibold block mt-0.5">
+                      Ahorras aprox. <span id="calc-annual-saving">$17,100 MXN</span> al año
+                    </span>
+                  </div>
+
+                  <button 
+                    id="calc-lock-scholarship-btn" 
+                    type="button" 
+                    class="w-full sm:w-auto px-5 py-3 bg-[#FF6500] hover:bg-[#E55800] text-white font-bold rounded-xl text-xs transition shadow-md shadow-orange-500/30 flex items-center justify-center gap-1.5 uppercase"
+                  >
+                    <span>Apartar y Congelar Beca</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. MODALIDADES DE ESTUDIO FLEXIBLES
+  ============================================================ -->
+  <section id="modalidades" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold mb-3 uppercase tracking-wider">
+          <i data-lucide="layout" class="w-3.5 h-3.5"></i>
+          Flexibilidad Total
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight">
+          Estudia a tu ritmo sin descuidar tu trabajo ni tu familia
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3">
+          Elige entre 3 modelos pedagógicos adaptados a tus horarios y ubicación geográfica.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Modalidad 1: 100% En Línea -->
+        <div class="card-hover-lift bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between relative overflow-hidden">
+          <div class="w-12 h-12 rounded-2xl bg-orange-100 text-[#FF6500] flex items-center justify-center mb-6">
+            <i data-lucide="laptop" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Estudia desde cualquier lugar</span>
+            <h3 class="text-2xl font-bold text-slate-800 mt-1 mb-3">100% En Línea</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
+              Campus virtual disponible 24 horas al día, los 7 días de la semana. Clases grabadas, recursos descargables, foros de debate y tutoría docente continua sin horarios fijos.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-700 mb-6">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Plataforma moderna tipo Canvas / Moodle</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Sin traslados ni gastos de transporte</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Validez oficial SEP idéntica a presencial</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#calculadora" class="w-full text-center py-2.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition">
+            Cotizar en Línea
+          </a>
+        </div>
+
+        <!-- Modalidad 2: Ejecutiva Sabatina -->
+        <div class="card-hover-lift bg-white rounded-3xl p-8 border-2 border-orange-500 shadow-lg flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-4 right-4 bg-orange-500 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">
+            Más Popular
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center mb-6">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Para profesionistas que laboran</span>
+            <h3 class="text-2xl font-bold text-slate-800 mt-1 mb-3">Ejecutiva Sabatina</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
+              Asiste solo un día a la semana (sábados de 8:00 a 14:00 hrs) y complementa tus actividades académicas a través de la plataforma digital durante la semana.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-700 mb-6">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Networking con profesionistas activos</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Avance cuatrimestral acelerado</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Casos prácticos aplicables a tu empleo actual</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#calculadora" class="w-full text-center py-2.5 rounded-xl text-xs font-bold bg-orange-600 hover:bg-orange-700 text-white transition shadow">
+            Cotizar Ejecutiva
+          </a>
+        </div>
+
+        <!-- Modalidad 3: Presencial Escolarizada -->
+        <div class="card-hover-lift bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between relative overflow-hidden">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Vida Universitaria Completa</span>
+            <h3 class="text-2xl font-bold text-slate-800 mt-1 mb-3">Presencial Escolarizada</h3>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
+              Vive la experiencia de campus con clases de lunes a viernes en turnos matutino y vespertino. Laboratorios especializados, biblioteca, talleres y actividades extracurriculares.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-700 mb-6">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Laboratorios de cómputo y psicometría</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Interacción cara a cara con catedráticos</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                <span>Convenios de servicio social y prácticas</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#calculadora" class="w-full text-center py-2.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition">
+            Cotizar Presencial
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. ¿POR QUÉ ESTUDIAR CON NOSOTROS? (DIFERENCIADORES)
+  ============================================================ -->
+  <section id="por-que-nosotros" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-[#FF6500] text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            Excelencia Académica
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight leading-snug">
+            Diseñamos planes educativos para que encuentres empleo y aumentes tu sueldo
+          </h2>
+
+          <p class="text-slate-600 text-sm leading-relaxed">
+            A diferencia de los modelos universitarios tradicionales de 4 o 5 años con materias obsoletas, nuestros planes están orientados a lo que las empresas, despachos y escuelas mexicanas solicitan hoy en día.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+            
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+                <i data-lucide="file-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-800">RVOE SEP Federal</h4>
+                <p class="text-xs text-slate-500 mt-1">Cédula profesional con validez en toda la República Mexicana y apostillable al extranjero.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <i data-lucide="briefcase" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-800">Bolsa de Empleo</h4>
+                <p class="text-xs text-slate-500 mt-1">Convenios de vinculación con más de 350 empresas líderes del sector público y privado.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-800">Titulación Directa</h4>
+                <p class="text-xs text-slate-500 mt-1">Opciones sin tesis: por promedio de excelencia, examen Ceneval, posgrado o experiencia laboral.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-slate-800">Termina en 3 Años</h4>
+                <p class="text-xs text-slate-500 mt-1">Modelo cuatrimestral continuo sin pausas largas para graduarte más rápido al mercado laboral.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" 
+                alt="Estudiantes universitarios trabajando en equipo" 
+                class="w-full h-[450px] object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0B192C]/80 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 text-white p-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">
+                    94%
+                  </div>
+                  <div>
+                    <h5 class="text-sm font-bold">Índice de Inserción Laboral</h5>
+                    <p class="text-xs text-slate-200">De nuestros egresados consigue empleo o ascenso dentro de sus primeros 6 meses.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. PASO A PASO DE ADMISIÓN (SIMPLE Y TRANSPARENTE)
+  ============================================================ -->
+  <section id="admisiones" class="py-20 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold text-orange-400 uppercase tracking-widest">Sin examen de admisión difícil</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading mt-2">
+          Tu inscripción en 4 sencillos pasos
+        </h2>
+        <p class="text-slate-400 text-sm mt-3">
+          Proceso 100% digital o presencial en nuestras sedes universitarias.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 relative">
+          <div class="text-4xl font-black text-orange-500/30 absolute top-4 right-4">01</div>
+          <div class="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold mb-4 shadow">
+            1
+          </div>
+          <h4 class="text-base font-bold mb-2">Elige tu Programa</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Revisa nuestra oferta de Licenciaturas, Maestrías o Doctorados y selecciona tu modalidad de estudio preferida.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 relative">
+          <div class="text-4xl font-black text-orange-500/30 absolute top-4 right-4">02</div>
+          <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold mb-4 shadow">
+            2
+          </div>
+          <h4 class="text-base font-bold mb-2">Calcula y Fija tu Beca</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Envía tus datos para asignarte una beca de hasta el 50% congelada durante todo el transcurso de tu carrera.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 relative">
+          <div class="text-4xl font-black text-orange-500/30 absolute top-4 right-4">03</div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold mb-4 shadow">
+            3
+          </div>
+          <h4 class="text-base font-bold mb-2">Entrega de Documentos</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Sube de forma digital tu acta de nacimiento, certificado del nivel anterior y CURP para tu validación SEP.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 relative">
+          <div class="text-4xl font-black text-orange-500/30 absolute top-4 right-4">04</div>
+          <div class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold mb-4 shadow">
+            4
+          </div>
+          <h4 class="text-base font-bold mb-2">¡Inicia tus Clases!</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Recibe tu matrícula de estudiante, credencial y acceso a tus aulas y campus virtual institucional.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. FORMULARIO PRINCIPAL DE REGISTRO DE ASPIRANTE
+  ============================================================ -->
+  <section id="registro-aspirante" class="py-20 bg-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200">
+        
+        <div class="text-center mb-8">
+          <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Paso Inmediato</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0B192C] font-heading mt-1">
+            Solicitud de Registro e Informes Académicos
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-2">
+            Llena este formulario para que el departamento de admisiones valide tu perfil y active tu beca institucional.
+          </p>
+        </div>
+
+        <form id="lead-form" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Nombre Completo *</label>
+              <input 
+                type="text" 
+                id="form-name" 
+                required 
+                placeholder="Nombre(s) y Apellidos"
+                class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Teléfono Móvil o WhatsApp *</label>
+              <input 
+                type="tel" 
+                id="form-phone" 
+                required 
+                placeholder="10 dígitos (Ej. 55 1234 5678)"
+                class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              />
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico *</label>
+              <input 
+                type="email" 
+                id="form-email" 
+                required 
+                placeholder="ejemplo@correo.com"
+                class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Promedio Anterior (Estimado)</label>
+              <input 
+                type="number" 
+                id="form-average" 
+                step="0.1" 
+                min="7.0" 
+                max="10.0" 
+                value="8.5" 
+                class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              />
+            </div>
+
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Programa de tu Interés *</label>
+            <select 
+              id="form-program" 
+              required 
+              class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+            >
+              <!-- Llenado dinámico por JS -->
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad Deseada *</label>
+              <select 
+                id="form-modality" 
+                class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              >
+                <option value="En Línea">100% En Línea (A tu ritmo)</option>
+                <option value="Presencial">Presencial Escolarizada (Lunes a Viernes)</option>
+                <option value="Ejecutiva Sabatina">Ejecutiva Sabatina (1 día a la semana)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Plantel / Campus de Preferencia</label>
+              <select 
+                id="form-campus" 
+                class="w-full px-3.5 py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
+              >
+                <option value="Campus Central">Campus Central Universitario</option>
+                <option value="Campus Norte">Campus Norte</option>
+                <option value="Campus Virtual">Campus Virtual (Nacional / Internacional)</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <button 
+              type="submit" 
+              class="w-full py-4 bg-[#FF6500] hover:bg-[#E55800] text-white font-extrabold rounded-xl text-sm transition shadow-lg shadow-orange-500/25 flex items-center justify-center gap-2 uppercase tracking-wider"
+            >
+              <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+              <span>Enviar Registro y Contactar Asesor en WhatsApp</span>
+            </button>
+          </div>
+
+          <p class="text-[11px] text-slate-400 text-center">
+            Al registrarte aceptas ser contactado por un asesor de admisiones para brindarte asesoría educativa personalizada.
+          </p>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. PREGUNTAS FRECUENTES (FAQ ACCORDION)
+  ============================================================ -->
+  <section id="preguntas-frecuentes" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Resuelve tus Dudas</span>
+        <h2 class="text-3xl font-extrabold text-[#0B192C] font-heading mt-1">
+          Preguntas Frecuentes
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button 
+            type="button" 
+            onclick="toggleFaq(this)" 
+            class="w-full px-6 py-4 text-left font-bold text-sm text-slate-800 bg-slate-50 hover:bg-slate-100 flex items-center justify-between transition"
+          >
+            <span>¿Los programas cuentan con validez oficial RVOE ante la SEP?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-500 transition-transform"></i>
+          </button>
+          <div class="p-6 text-xs text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Sí, el 100% de nuestras Licenciaturas, Maestrías y Doctorados cuentan con Reconocimiento de Validez Oficial de Estudios (RVOE) emitido por la Secretaría de Educación Pública (SEP) a nivel federal, lo que garantiza la validez de tu título y la expedición de tu Cédula Profesional Federal.
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button 
+            type="button" 
+            onclick="toggleFaq(this)" 
+            class="w-full px-6 py-4 text-left font-bold text-sm text-slate-800 bg-slate-50 hover:bg-slate-100 flex items-center justify-between transition"
+          >
+            <span>¿Puedo perder mi porcentaje de beca al avanzar cuatrimestres?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-500 transition-transform"></i>
+          </button>
+          <div class="p-6 text-xs text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            No. Nuestra beca inicial queda congelada durante toda la duración de tu programa académico, siempre y cuando mantengas tu condición de alumno regular (aprobando tus materias en tiempo) y realices tus pagos dentro de las fechas pactadas.
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button 
+            type="button" 
+            onclick="toggleFaq(this)" 
+            class="w-full px-6 py-4 text-left font-bold text-sm text-slate-800 bg-slate-50 hover:bg-slate-100 flex items-center justify-between transition"
+          >
+            <span>¿Qué documentos requiero para inscribirme?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-500 transition-transform"></i>
+          </button>
+          <div class="p-6 text-xs text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Para iniciar tu trámite digital solo requieres copia legible de: 
+            <br>• Acta de nacimiento actualizada.
+            <br>• Certificado total de estudios del nivel inmediato anterior (Bachillerato para Licenciatura; Licenciatura para Maestría; Maestría para Doctorado).
+            <br>• CURP actualizada.
+            <br>• Comprobante de domicilio reciente.
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <button 
+            type="button" 
+            onclick="toggleFaq(this)" 
+            class="w-full px-6 py-4 text-left font-bold text-sm text-slate-800 bg-slate-50 hover:bg-slate-100 flex items-center justify-between transition"
+          >
+            <span>¿Cuáles son las opciones de titulación disponibles?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-500 transition-transform"></i>
+          </button>
+          <div class="p-6 text-xs text-slate-600 leading-relaxed border-t border-slate-100 hidden">
+            Ofrecemos hasta 9 modalidades flexibles: Titulación por Promedio de Excelencia (sin tesis), Examen General de Egreso (EGEL Ceneval), Estudios de Posgrado (créditos de maestría), Tesis tradicional, Tesina con examen profesional, o Experiencia Profesional certificada.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. FOOTER INSTITUCIONAL COMPLETO
+  ============================================================ -->
+  <footer class="bg-[#0B192C] text-slate-400 text-xs pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Identidad -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold shadow">
+              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            </div>
+            <span class="text-lg font-bold text-white font-heading">UNIVERSIDAD NOVA</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            Institución privada de educación superior dedicada a la formación de líderes con visión humanista, profesionalismo y pertinencia laboral.
+          </p>
+          <div class="pt-2 text-slate-400 space-y-1">
+            <p>📍 Av. Universidad #1500, Ciudad Universitaria</p>
+            <p>📞 Teléfono: (55) 1234-5678</p>
+            <p>✉️ Correo: informes@universidadnova.edu.mx</p>
+          </div>
+        </div>
+
+        <!-- Licenciaturas -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Licenciaturas</h4>
+          <ul class="space-y-2">
+            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Educación</a></li>
+            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Pedagogía</a></li>
+            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Psicología</a></li>
+            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Administración</a></li>
+            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Lengua Inglesa</a></li>
+          </ul>
+        </div>
+
+        <!-- Maestrías y Doctorados -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Posgrados</h4>
+          <ul class="space-y-2">
+            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Educación</a></li>
+            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Ciencias de la Educación</a></li>
+            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Administración</a></li>
+            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Finanzas</a></li>
+            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Auditoría</a></li>
+            <li class="pt-2 text-white font-bold text-[11px] uppercase tracking-wider">Doctorados:</li>
+            <li><a href="#oferta" class="hover:text-white transition">Doc. en Educación</a></li>
+            <li><a href="#oferta" class="hover:text-white transition">Doc. en Alta Dirección</a></li>
+          </ul>
+        </div>
+
+        <!-- Enlaces Rápidos y CRM -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Accesos Directos</h4>
+          <ul class="space-y-2">
+            <li><a href="#calculadora" class="hover:text-white transition">Calculadora de Beca</a></li>
+            <li><a href="#modalidades" class="hover:text-white transition">Modalidades de Estudio</a></li>
+            <li><a href="#admisiones" class="hover:text-white transition">Requisitos de Inscripción</a></li>
+            <li><a href="#registro-aspirante" class="hover:text-white transition">Formulario de Admisión</a></li>
+            <li class="pt-3">
+              <button 
+                onclick="openLeadsModal()" 
+                class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-orange-400 font-semibold text-[11px] transition flex items-center gap-1.5"
+              >
+                <i data-lucide="users" class="w-3.5 h-3.5"></i>
+                <span>Ver Aspirantes Registrados</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
+        <div>
+          © 2026 Universidad Nova. Todos los derechos reservados. Planes con Reconocimiento de Validez Oficial ante la SEP.
+        </div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:underline">Aviso de Privacidad</a>
+          <a href="#" class="hover:underline">Términos y Condiciones</a>
+          <a href="#" class="hover:underline">Reglamento Escolar</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       13. MODAL DE DETALLE DE PROGRAMA (PLAN DE ESTUDIOS)
+  ============================================================ -->
+  <div id="program-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm overflow-y-auto">
+    <div class="modal-content-panel relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 max-h-[90vh] flex flex-col">
+      
+      <!-- Botón Cerrar Superior -->
+      <button 
+        onclick="closeProgramModal()" 
+        class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition"
+        aria-label="Cerrar ventana"
+      >
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Contenedor dinámico del modal -->
+      <div id="modal-dynamic-content" class="overflow-y-auto flex-1">
+        <!-- Renderizado por js/app.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       14. MODAL DEL CRM LOCAL DE PROSPECTOS REGISTRADOS
+  ============================================================ -->
+  <div id="leads-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+    <div class="modal-content-panel relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      
+      <div class="bg-[#0B192C] text-white p-6 flex items-center justify-between">
+        <div>
+          <h3 class="text-xl font-bold flex items-center gap-2">
+            <i data-lucide="database" class="w-5 h-5 text-orange-400"></i>
+            Base de Datos de Aspirantes (CRM Escolar)
+          </h3>
+          <p class="text-xs text-slate-300 mt-1">Registros capturados en tiempo real a través de los formularios y calculadora.</p>
+        </div>
+        <button 
+          onclick="closeLeadsModal()" 
+          class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
+        >
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-4 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <span class="text-xs text-slate-600 font-medium">
+          Los prospectos se guardan en el navegador y pueden ser exportados directamente a Excel / CSV.
+        </span>
+        <div class="flex gap-2">
+          <button 
+            id="export-csv-btn" 
+            class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm"
+          >
+            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+            Descargar CSV para Excel
+          </button>
+          <button 
+            id="clear-leads-btn" 
+            class="px-3 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl text-xs font-semibold transition"
+          >
+            Vaciar Lista
+          </button>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto flex-1 p-6">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-700 text-[11px] uppercase tracking-wider font-bold">
+              <th class="px-4 py-3 rounded-l-lg">Fecha</th>
+              <th class="px-4 py-3">Nombre</th>
+              <th class="px-4 py-3">WhatsApp</th>
+              <th class="px-4 py-3">Correo</th>
+              <th class="px-4 py-3">Programa y Modalidad</th>
+              <th class="px-4 py-3 rounded-r-lg">Promedio</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Filas dinámicas -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="p-4 bg-slate-100 border-t border-slate-200 text-right">
+        <button 
+          onclick="closeLeadsModal()" 
+          class="px-5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-xl transition"
+        >
+          Cerrar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================
+       15. NOTIFICACIÓN TOAST FLOTANTE
+  ============================================================ -->
+  <div 
+    id="notification-toast" 
+    class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-xl shadow-2xl text-white font-medium text-sm transition-all duration-300 translate-y-20 opacity-0 pointer-events-none"
+  >
+    <i data-lucide="check-circle" class="w-5 h-5 shrink-0"></i>
+    <span id="toast-message">Mensaje de notificación</span>
+  </div>
+
+  <!-- ============================================================
+       16. BOTÓN FLOTANTE DE WHATSAPP CON PULSO
+  ============================================================ -->
+  <a 
+    href="https://wa.me/525512345678?text=Hola%20Universidad!%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20licenciaturas%20y%20posgrados%20con%20beca." 
+    target="_blank" 
+    class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl whatsapp-pulse hover:scale-110 transition-transform group"
+    aria-label="Contactar por WhatsApp"
+    title="Chatea con un asesor de admisiones"
+  >
+    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.777.925 2.791.925h.005c3.181 0 5.768-2.587 5.768-5.767 0-3.18-2.587-5.766-5.768-5.766zm9.965 5.766c0 5.518-4.482 10-10 10-1.745 0-3.383-.448-4.819-1.233l-5.177 1.357 1.382-5.048c-.901-1.493-1.386-3.216-1.386-5.076 0-5.518 4.482-10 10-10 5.518 0 10 4.482 10 10z"/>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       SCRIPTS DEL SISTEMA
+  ============================================================ -->
+  <script src="js/programs-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Inicializar íconos Lucide
+    lucide.createIcons();
+
+    // Recrear iconos cuando se renderiza dinámicamente
+    const observer = new MutationObserver(() => {
+      lucide.createIcons();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Enviar formulario rápido del Hero
+    function handleHeroSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('hero-name').value.trim();
+      const phone = document.getElementById('hero-phone').value.trim();
+      const email = document.getElementById('hero-email').value.trim();
+      const program = document.getElementById('hero-program').value;
+      const modality = document.querySelector('input[name="hero-modality"]:checked')?.value || 'En Línea';
+
+      const newLead = {
+        id: Date.now(),
+        fecha: new Date().toLocaleString('es-MX'),
+        nombre: name,
+        telefono: phone,
+        email: email,
+        programa: program,
+        modalidad: modality,
+        promedio: "8.5",
+        campus: "Campus Central / En Línea"
+      };
+
+      const existingLeads = JSON.parse(localStorage.getItem('utc_school_leads') || '[]');
+      existingLeads.unshift(newLead);
+      localStorage.setItem('utc_school_leads', JSON.stringify(existingLeads));
+
+      const waNumber = "525512345678";
+      const waMessage = encodeURIComponent(
+        `¡Hola Universidad! 👋 Mi nombre es *${name}*.\n` +
+        `Solicito mi diagnóstico de beca para:\n` +
+        `🎓 *Programa:* ${program}\n` +
+        `📍 *Modalidad:* ${modality}\n` +
+        `📱 *Teléfono:* ${phone}\n` +
+        `📧 *Correo:* ${email}`
+      );
+
+      alert(`¡Gracias ${name}! Tu solicitud ha sido recibida con éxito. Te canalizamos a WhatsApp para activar tu beca.`);
+      window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
+    }
+  </script>
+</body>
+</html>

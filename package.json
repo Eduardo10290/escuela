@@ -1,0 +1,20 @@
+{
+  "name": "portal-universidad-moderna",
+  "version": "1.0.0",
+  "description": "Portal web universitario moderno inspirado en UTC con 12 programas académicos (Licenciaturas, Maestrías, Doctorados), calculadora interactiva de becas y CRM de aspirantes.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "escuela",
+    "universidad",
+    "educacion",
+    "licenciaturas",
+    "maestrias",
+    "doctorados",
+    "utc"
+  ],
+  "author": "",
+  "license": "MIT"
+}
