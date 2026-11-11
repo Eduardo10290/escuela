@@ -13,9 +13,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["Presencial", "En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-EDU-0418",
     badge: "Alta Demanda Laboral",
-    baseMonthlyFee: 2850,
     icon: "graduation-cap",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
+    image: "img/licenciatura-educacion.jpg",
     summary: "Forma profesionistas con liderazgo pedagógico capaces de transformar los procesos de enseñanza-aprendizaje mediante innovación curricular, tecnología educativa e inclusión social.",
     perfilEgreso: [
       "Diseño e implementación de modelos educativos contemporáneos y vanguardistas.",
@@ -79,9 +78,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["Presencial", "En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-PED-0512",
     badge: "Enfoque Multidisciplinario",
-    baseMonthlyFee: 2850,
     icon: "book-open",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+    image: "img/licenciatura-pedagogia.jpg",
     summary: "Especialízate en el estudio profundo de los fenómenos formativos y el desarrollo humano, dominando técnicas psicopedagógicas, orientación vocacional y capacitación empresarial.",
     perfilEgreso: [
       "Diagnóstico psicopedagógico e intervención en dificultades de aprendizaje.",
@@ -145,9 +143,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["Presencial", "En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-PSI-0630",
     badge: "Laboratorio de Psicometría",
-    baseMonthlyFee: 2950,
     icon: "brain",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    image: "img/licenciatura-psicologia.jpg",
     summary: "Comprende la conducta y los procesos mentales del ser humano. Domina la evaluación diagnóstica, la psicometría, la intervención psicológica y la salud mental integral.",
     perfilEgreso: [
       "Aplicación e interpretación ética de pruebas psicométricas y proyectivas.",
@@ -211,9 +208,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["Presencial", "En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-ADM-0711",
     badge: "Simuladores de Negocios",
-    baseMonthlyFee: 2750,
     icon: "briefcase",
-    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    image: "img/licenciatura-administracion.jpg",
     summary: "Prepárate para liderar organizaciones y emprender negocios competitivos. Aprende a coordinar recursos financieros, humanos, tecnológicos y de mercadotecnia con visión estratégica global.",
     perfilEgreso: [
       "Planeación estratégica y toma de decisiones corporativas rentables.",
@@ -277,9 +273,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["Presencial", "En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-ING-0822",
     badge: "Certificaciones Cambridge & TOEFL",
-    baseMonthlyFee: 2850,
     icon: "languages",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80",
+    image: "img/licenciatura-lengua-inglesa.jpg",
     summary: "Domina el idioma inglés a nivel nativo/C2 y profesionalízate en traducción especializada, interpretación, docencia con estándares internacionales (TESOL) y comunicación global.",
     perfilEgreso: [
       "Dominio operativo C1/C2 bajo el Marco Común Europeo de Referencia (MCER).",
@@ -347,9 +342,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-POS-1015",
     badge: "Horarios para Profesionistas",
-    baseMonthlyFee: 3400,
     icon: "award",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    image: "img/maestria-educacion.jpg",
     summary: "Impulsa tu trayectoria como líder pedagógico, directivo institucional o innovador en ambientes de aprendizaje digitales y presenciales para cualquier nivel académico.",
     perfilEgreso: [
       "Dirección y gestión estratégica de centros e instituciones educativas.",
@@ -396,9 +390,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-POS-1019",
     badge: "Enfoque en Investigación",
-    baseMonthlyFee: 3400,
     icon: "microscope",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+    image: "img/maestria-ciencias-educacion.jpg",
     summary: "Profundiza en el análisis epistemológico, sociológico y científico de los sistemas educativos para generar investigaciones de alto impacto y resolver problemáticas complejas de aprendizaje.",
     perfilEgreso: [
       "Dominio de metodologías cuantitativas, cualitativas y mixtas en educación.",
@@ -445,9 +438,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-POS-1030",
     badge: "Visión Global Directiva",
-    baseMonthlyFee: 3600,
     icon: "trending-up",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
+    image: "img/maestria-administracion.jpg",
     summary: "Desarrolla habilidades directivas de alto impacto para liderar organizaciones globales, acelerar la transformación digital e impulsar el crecimiento sostenible de los negocios.",
     perfilEgreso: [
       "Toma de decisiones ejecutivas en entornos de alta volatilidad e incertidumbre.",
@@ -494,9 +486,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-POS-1044",
     badge: "Modelado Financiero & Riesgos",
-    baseMonthlyFee: 3600,
     icon: "dollar-sign",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    image: "img/maestria-finanzas.jpg",
     summary: "Conviértete en un estratega financiero indispensable: domina la ingeniería financiera, los mercados bursátiles, la valuación de empresas y la gestión de portafolios y riesgos.",
     perfilEgreso: [
       "Valuación integral de empresas, activos intangibles y proyectos de inversión complejos.",
@@ -543,9 +534,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Ejecutiva Sabatina"],
     rvoe: "RVOE SEP Federal: 2024-POS-1052",
     badge: "Auditoría Forense y COSO",
-    baseMonthlyFee: 3600,
     icon: "shield-check",
-    image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80",
+    image: "img/maestria-auditoria.jpg",
     summary: "Especialízate en control interno, auditoría integral, prevención y detección de fraudes (auditoría forense) y dictamen conforme a las Normas Internacionales de Auditoría (NIA).",
     perfilEgreso: [
       "Aplicación rigurosa de las Normas Internacionales de Auditoría (NIA y NIF).",
@@ -596,9 +586,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Semipresencial Mensual"],
     rvoe: "RVOE SEP Federal: 2024-DOC-2011",
     badge: "Grado Máximo Académico",
-    baseMonthlyFee: 4700,
     icon: "feather",
-    image: "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=800&q=80",
+    image: "img/doctorado-educacion.jpg",
     summary: "Alcanza la cúspide de la carrera académica. Conviértete en un investigador y líder intelectual capaz de formular modelos educativos inéditos y transformar las políticas públicas de tu país.",
     perfilEgreso: [
       "Generación de nuevo conocimiento original y transferible en el campo educativo.",
@@ -649,9 +638,8 @@ const ACADEMIC_PROGRAMS = [
     modalities: ["En Línea", "Semipresencial Mensual"],
     rvoe: "RVOE SEP Federal: 2024-DOC-2025",
     badge: "Liderazgo y Gobernanza",
-    baseMonthlyFee: 4900,
     icon: "crown",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
+    image: "img/doctorado-alta-direccion.jpg",
     summary: "Diseñado para presidentes, directores generales y consejeros de administración. Desarrolla investigación aplicada para la toma de decisiones estratégicas al más alto nivel corporativo y gubernamental.",
     perfilEgreso: [
       "Formulación de visiones corporativas de alcance global y gobierno corporativo sólido.",
@@ -694,10 +682,3 @@ const ACADEMIC_PROGRAMS = [
   }
 ];
 
-// Opciones de becas y colegiaturas base
-const SCHOLARSHIP_TIERS = [
-  { minGrade: 9.5, maxGrade: 10.0, discount: 0.50, label: "50% de Beca de Excelencia", color: "emerald" },
-  { minGrade: 8.5, maxGrade: 9.49, discount: 0.40, label: "40% de Beca al Mérito", color: "blue" },
-  { minGrade: 8.0, maxGrade: 8.49, discount: 0.30, label: "30% de Beca Impulso", color: "amber" },
-  { minGrade: 7.0, maxGrade: 7.99, discount: 0.20, label: "20% de Beca Apoyo Inicial", color: "slate" }
-];

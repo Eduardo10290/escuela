@@ -13,23 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const searchInput = document.getElementById('search-program');
   
-  // Modal de Detalle de Programa
-  const programModal = document.getElementById('program-modal');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
-  
-  // Calculadora de Becas
-  const calcLevelSelect = document.getElementById('calc-level');
-  const calcProgramSelect = document.getElementById('calc-program');
-  const calcGradeSlider = document.getElementById('calc-grade-slider');
-  const calcGradeDisplay = document.getElementById('calc-grade-display');
-  const calcTierBadge = document.getElementById('calc-tier-badge');
-  const calcRegularFee = document.getElementById('calc-regular-fee');
-  const calcDiscountPercent = document.getElementById('calc-discount-percent');
-  const calcDiscountAmount = document.getElementById('calc-discount-amount');
-  const calcFinalFee = document.getElementById('calc-final-fee');
-  const calcAnnualSaving = document.getElementById('calc-annual-saving');
-  const calcLockScholarshipBtn = document.getElementById('calc-lock-scholarship-btn');
-  
   // Formulario de Admisión / Aspirante
   const leadForm = document.getElementById('lead-form');
   const formProgramSelect = document.getElementById('form-program');
@@ -52,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. POBLAR SELECTORES CON LOS 12 PROGRAMAS
   // ============================================================
   function populateProgramSelects() {
-    if (!calcProgramSelect || !formProgramSelect) return;
+    if (!formProgramSelect) return;
 
     // Llenar select del formulario principal
     formProgramSelect.innerHTML = '<option value="">Selecciona tu programa de interés...</option>';
@@ -77,25 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     formProgramSelect.appendChild(optGroupLic);
     formProgramSelect.appendChild(optGroupMae);
     formProgramSelect.appendChild(optGroupDoc);
-
-    // Actualizar programas en la calculadora según nivel seleccionado
-    updateCalculatorPrograms();
-  }
-
-  function updateCalculatorPrograms() {
-    if (!calcLevelSelect || !calcProgramSelect) return;
-    const selectedLevel = calcLevelSelect.value;
-    const filtered = ACADEMIC_PROGRAMS.filter(p => p.level === selectedLevel);
-
-    calcProgramSelect.innerHTML = '';
-    filtered.forEach(prog => {
-      const opt = document.createElement('option');
-      opt.value = prog.id;
-      opt.textContent = prog.name;
-      calcProgramSelect.appendChild(opt);
-    });
-
-    calculateScholarship();
   }
 
   // ============================================================
@@ -203,29 +167,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <!-- Pie de Card y Acciones -->
             <div class="pt-3 border-t border-slate-100">
-              <div class="flex items-center justify-between mb-3 text-xs">
-                <span class="text-slate-500">Colegiatura mensual desde:</span>
-                <span class="text-sm font-bold text-[#0B192C]">
-                  $${Math.round(prog.baseMonthlyFee * 0.50).toLocaleString('es-MX')} MXN <span class="text-[10px] text-orange-600 font-normal">con 50% beca</span>
-                </span>
-              </div>
-
-              <div class="grid grid-cols-2 gap-2">
-                <button 
-                  onclick="openProgramModal('${prog.id}')"
-                  class="w-full px-3 py-2.5 text-xs font-bold text-[#0B192C] bg-slate-100 hover:bg-slate-200 rounded-xl transition text-center flex items-center justify-center gap-1.5"
-                >
-                  <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                  Plan de Estudios
-                </button>
-                <button 
-                  onclick="selectProgramForCalculator('${prog.id}')"
-                  class="w-full px-3 py-2.5 text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] rounded-xl transition shadow-sm text-center flex items-center justify-center gap-1.5"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                  Calcular Beca
-                </button>
-              </div>
+              <button 
+                onclick="requestProgramInfo('${prog.id}')"
+                class="w-full px-3 py-2.5 text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] rounded-xl transition shadow-sm text-center flex items-center justify-center gap-1.5"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                Solicitar Informes por WhatsApp
+              </button>
             </div>
           </div>
         </div>
@@ -234,260 +182,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // 3. MODAL DE DETALLE COMPLETO DEL PROGRAMA
+  // 3. SOLICITAR INFORMES POR WHATSAPP (PROGRAMA SELECCIONADO)
   // ============================================================
-  window.openProgramModal = function(programId) {
-    const prog = ACADEMIC_PROGRAMS.find(p => p.id === programId);
-    if (!prog || !programModal) return;
-
-    let levelBadgeColor = 'bg-blue-100 text-blue-800';
-    if (prog.level === 'maestria') levelBadgeColor = 'bg-purple-100 text-purple-800';
-    if (prog.level === 'doctorado') levelBadgeColor = 'bg-amber-100 text-amber-900';
-
-    const modalBody = document.getElementById('modal-dynamic-content');
-    modalBody.innerHTML = `
-      <!-- Cabecera del Programa -->
-      <div class="relative bg-[#0B192C] text-white p-6 sm:p-8 rounded-t-2xl overflow-hidden">
-        <div class="absolute -right-16 -top-16 w-64 h-64 bg-orange-600/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10">
-          <div class="flex flex-wrap items-center gap-2 mb-3">
-            <span class="px-3 py-1 text-xs font-bold rounded-full ${levelBadgeColor}">
-              ${prog.levelName}
-            </span>
-            <span class="px-3 py-1 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-              ${prog.rvoe}
-            </span>
-            <span class="px-3 py-1 text-xs font-semibold rounded-full bg-white/10 text-white">
-              ${prog.duration}
-            </span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 tracking-tight">${prog.name}</h2>
-          <p class="text-slate-300 text-sm max-w-2xl leading-relaxed">${prog.summary}</p>
-        </div>
-      </div>
-
-      <!-- Pestañas de Navegación del Modal -->
-      <div class="p-6 sm:p-8 space-y-8 bg-slate-50">
-        
-        <!-- Pestaña 1: Plan de Estudios / Materias por Cuatrimestre -->
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
-              📚
-            </div>
-            <h3 class="text-xl font-bold text-slate-800">Mapa Curricular y Asignaturas</h3>
-          </div>
-          <p class="text-xs text-slate-500 mb-4">Plan estructurado por cuatrimestres para una formación integral, actualizada y con alta orientación práctica.</p>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            ${prog.cuatrimestres.map(c => `
-              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                <div class="text-xs font-bold text-orange-600 uppercase tracking-wider mb-2.5 pb-1 border-b border-orange-100 flex items-center justify-between">
-                  <span>${c.numero}</span>
-                  <span class="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-normal">${c.materias.length} materias</span>
-                </div>
-                <ul class="space-y-1.5">
-                  ${c.materias.map(m => `
-                    <li class="text-xs text-slate-700 flex items-start gap-1.5">
-                      <span class="text-orange-500 font-bold text-[10px] mt-0.5">•</span>
-                      <span>${m}</span>
-                    </li>
-                  `).join('')}
-                </ul>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-
-        <!-- Pestaña 2: Perfil de Egreso y Campo Laboral -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-            <h4 class="text-base font-bold text-slate-800 mb-3 flex items-center gap-2">
-              <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Perfil de Egreso
-            </h4>
-            <ul class="space-y-2.5">
-              ${prog.perfilEgreso.map(p => `
-                <li class="text-xs text-slate-600 flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
-                  <span>${p}</span>
-                </li>
-              `).join('')}
-            </ul>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-            <h4 class="text-base font-bold text-slate-800 mb-3 flex items-center gap-2">
-              <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              Dónde Podrás Trabajar
-            </h4>
-            <ul class="space-y-2.5">
-              ${prog.campoLaboral.map(c => `
-                <li class="text-xs text-slate-600 flex items-start gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0"></span>
-                  <span>${c}</span>
-                </li>
-              `).join('')}
-            </ul>
-          </div>
-        </div>
-
-        <!-- Llamado a la acción inferior en el modal -->
-        <div class="bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-6 text-white flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
-          <div>
-            <h4 class="text-lg font-bold">¿Te interesa estudiar ${prog.name}?</h4>
-            <p class="text-xs text-orange-100">Calcula tu colegiatura con hasta 50% de beca garantizada.</p>
-          </div>
-          <button 
-            onclick="selectProgramFromModal('${prog.id}')"
-            class="px-6 py-3 bg-white text-orange-600 font-bold rounded-xl text-sm shadow hover:bg-orange-50 transition shrink-0"
-          >
-            Quiero mi Beca para este Programa →
-          </button>
-        </div>
-      </div>
-    `;
-
-    programModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeProgramModal = function() {
-    if (!programModal) return;
-    programModal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  };
-
-  window.selectProgramFromModal = function(programId) {
-    closeProgramModal();
-    selectProgramForCalculator(programId);
-  };
-
-  window.selectProgramForCalculator = function(programId) {
+  window.requestProgramInfo = function(programId) {
     const prog = ACADEMIC_PROGRAMS.find(p => p.id === programId);
     if (!prog) return;
 
-    if (calcLevelSelect) calcLevelSelect.value = prog.level;
-    updateCalculatorPrograms();
-    if (calcProgramSelect) calcProgramSelect.value = prog.id;
+    const waNumber = "527226119681";
+    const waMessage = encodeURIComponent(
+      `¡Hola Instituto Universitario L.A.! 👋\n\n` +
+      `Me interesa recibir información sobre:\n` +
+      `🎓 *Programa:* ${prog.name}\n` +
+      `📚 *Nivel:* ${prog.levelName}\n` +
+      `🆔 *Reconocimiento:* ${prog.rvoe}\n` +
+      `⏱️ *Duración:* ${prog.duration}\n` +
+      `🏫 *Modalidades:* ${prog.modalities.join(', ')}\n\n` +
+      `¿Me pueden enviar la información de inscripción y colegiatura?`
+    );
 
-    if (formProgramSelect) {
-      for (let i = 0; i < formProgramSelect.options.length; i++) {
-        if (formProgramSelect.options[i].value.includes(prog.name)) {
-          formProgramSelect.selectedIndex = i;
-          break;
-        }
-      }
-    }
-
-    calculateScholarship();
-
-    const calcSection = document.getElementById('calculadora');
-    if (calcSection) {
-      calcSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
   };
 
   // ============================================================
-  // 4. CALCULADORA DE BECAS Y SIMULADOR DE COLEGIATURA
+  // 3b. SECCIÓN DE INSCRIPCIÓN: NIVEL, COLEGIATURA Y FECHAS
   // ============================================================
-  function calculateScholarship() {
-    if (!calcProgramSelect || !calcGradeSlider) return;
+  let inscriptionLevel = 'Revalidación · Licenciatura';
 
-    const selectedProgramId = calcProgramSelect.value;
-    const prog = ACADEMIC_PROGRAMS.find(p => p.id === selectedProgramId) || ACADEMIC_PROGRAMS[0];
-    const grade = parseFloat(calcGradeSlider.value);
+  window.selectInscriptionLevel = function(level, label) {
+    inscriptionLevel = label;
 
-    // Actualizar visualizador de promedio
-    if (calcGradeDisplay) {
-      calcGradeDisplay.textContent = grade.toFixed(1);
-    }
-
-    // Modalidad seleccionada
-    const modalityRadio = document.querySelector('input[name="calc-modality"]:checked');
-    const modality = modalityRadio ? modalityRadio.value : 'presencial';
-
-    // Factor según modalidad (Online tiene tarifa preferencial)
-    let modalityMultiplier = 1.0;
-    if (modality === 'online') modalityMultiplier = 0.88;
-    if (modality === 'ejecutiva') modalityMultiplier = 0.94;
-
-    const baseMonthly = Math.round(prog.baseMonthlyFee * modalityMultiplier);
-
-    // Determinar nivel de beca según promedio
-    let scholarship = SCHOLARSHIP_TIERS.find(t => grade >= t.minGrade && grade <= t.maxGrade);
-    if (!scholarship) scholarship = SCHOLARSHIP_TIERS[SCHOLARSHIP_TIERS.length - 1];
-
-    const discountAmount = Math.round(baseMonthly * scholarship.discount);
-    const finalMonthlyFee = baseMonthly - discountAmount;
-    const annualSaving = discountAmount * 12;
-
-    // Actualizar interfaz
-    if (calcTierBadge) {
-      calcTierBadge.textContent = scholarship.label;
-      calcTierBadge.className = `inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold ${
-        scholarship.discount >= 0.5 ? 'bg-emerald-500 text-white' :
-        scholarship.discount >= 0.4 ? 'bg-blue-600 text-white' :
-        scholarship.discount >= 0.3 ? 'bg-amber-500 text-white' :
-        'bg-slate-700 text-white'
-      }`;
-    }
-
-    if (calcRegularFee) calcRegularFee.textContent = `$${baseMonthly.toLocaleString('es-MX')} MXN`;
-    if (calcDiscountPercent) calcDiscountPercent.textContent = `-${Math.round(scholarship.discount * 100)}%`;
-    if (calcDiscountAmount) calcDiscountAmount.textContent = `-$${discountAmount.toLocaleString('es-MX')} MXN`;
-    if (calcFinalFee) calcFinalFee.textContent = `$${finalMonthlyFee.toLocaleString('es-MX')}`;
-    if (calcAnnualSaving) calcAnnualSaving.textContent = `$${annualSaving.toLocaleString('es-MX')} MXN`;
-
-    return {
-      programName: prog.name,
-      level: prog.levelName,
-      modality,
-      grade,
-      discountPercent: Math.round(scholarship.discount * 100),
-      discountAmount,
-      finalMonthlyFee,
-      regularFee: baseMonthly
-    };
-  }
-
-  // Pre-llenar formulario al hacer clic en "Apartar Beca"
-  if (calcLockScholarshipBtn) {
-    calcLockScholarshipBtn.addEventListener('click', () => {
-      const calcData = calculateScholarship();
-      if (!calcData) return;
-
-      // Sincronizar con el formulario de admisión
-      if (formProgramSelect) {
-        for (let i = 0; i < formProgramSelect.options.length; i++) {
-          if (formProgramSelect.options[i].value.includes(calcData.programName)) {
-            formProgramSelect.selectedIndex = i;
-            break;
-          }
-        }
-      }
-
-      // Marcar modalidad en formulario si existe
-      const formModalitySelect = document.getElementById('form-modality');
-      if (formModalitySelect) {
-        formModalitySelect.value = calcData.modality;
-      }
-
-      const formAvgInput = document.getElementById('form-average');
-      if (formAvgInput) {
-        formAvgInput.value = calcData.grade.toFixed(1);
-      }
-
-      // Desplazarse al formulario
-      const formElement = document.getElementById('registro-aspirante');
-      if (formElement) {
-        formElement.scrollIntoView({ behavior: 'smooth' });
-        // Efecto visual de resaltado
-        formElement.classList.add('ring-4', 'ring-orange-400');
-        setTimeout(() => formElement.classList.remove('ring-4', 'ring-orange-400'), 2000);
-      }
+    document.querySelectorAll('.nivel-btn').forEach(btn => {
+      btn.classList.remove('bg-[#FF6500]', 'text-white', 'border-[#FF6500]');
+      btn.classList.add('bg-white/5', 'text-slate-200', 'border-white/10');
     });
-  }
+
+    const selected = document.querySelector(`.nivel-btn[data-level="${level}"]`);
+    if (selected) {
+      selected.classList.remove('bg-white/5', 'text-slate-200', 'border-white/10');
+      selected.classList.add('bg-[#FF6500]', 'text-white', 'border-[#FF6500]');
+    }
+
+    const labelEl = document.getElementById('nivel-seleccionado');
+    if (labelEl) labelEl.textContent = label;
+  };
+
+  window.requestColegiatura = function() {
+    const message = encodeURIComponent(
+      `¡Hola Instituto Universitario L.A.! 👋\n\n` +
+      `Quiero calcular mi colegiatura para el nivel: *${inscriptionLevel}*.\n` +
+      `¿Me pueden compartir la información de costos y modalidades?`
+    );
+    window.open(`https://wa.me/527226119681?text=${message}`, '_blank');
+  };
+
+  window.requestFechas = function() {
+    const message = encodeURIComponent(
+      `¡Hola Instituto Universitario L.A.! 👋\n\n` +
+      `Quiero información sobre las fechas de inicio disponibles para el nivel: *${inscriptionLevel}*.\n` +
+      `Entiendo que hay inicios cada 3 meses y que el primero es en diciembre.`
+    );
+    window.open(`https://wa.me/527226119681?text=${message}`, '_blank');
+  };
 
   // ============================================================
   // 5. REGISTRO DE PROSPECTOS Y ENVÍO A WHATSAPP
@@ -527,17 +282,17 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('utc_school_leads', JSON.stringify(existingLeads));
 
       // Construir mensaje de WhatsApp institucional
-      const waNumber = "525512345678"; // Número de admisiones configurable
+      const waNumber = "527226119681"; // Número de admisiones configurable
       const waMessage = encodeURIComponent(
-        `¡Hola Universidad! 👋 Mi nombre es *${name}*.\n\n` +
-        `Solicito información y deseo tramitar mi beca para:\n` +
+        `¡Hola Instituto Universitario L.A.! 👋 Mi nombre es *${name}*.\n\n` +
+        `Solicito información para:\n` +
         `🎓 *Programa:* ${program}\n` +
         `📍 *Modalidad:* ${modality}\n` +
         `📊 *Promedio anterior:* ${average}\n` +
         `🏢 *Sede/Modalidad de interés:* ${campus}\n` +
         `📧 *Correo:* ${email}\n` +
         `📱 *Teléfono:* ${phone}\n\n` +
-        `¿Podrían confirmarme mi porcentaje de beca y los requisitos de inscripción?`
+        `¿Podrían enviarme los requisitos de inscripción y la información del programa?`
       );
 
       showToast('¡Registro exitoso! Te estamos canalizando con un asesor vía WhatsApp...', 'success');
@@ -575,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
       leadsTableBody.innerHTML = `
         <tr>
           <td colspan="6" class="px-4 py-8 text-center text-slate-500 text-xs">
-            Aún no hay aspirantes registrados. Cuando los prospectos llenen el formulario o calculadora aparecerán aquí.
+            Aún no hay aspirantes registrados. Cuando los prospectos llenen el formulario aparecerán aquí.
           </td>
         </tr>
       `;
@@ -680,14 +435,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPrograms();
   };
 
-  // Eventos de la calculadora
-  if (calcLevelSelect) calcLevelSelect.addEventListener('change', updateCalculatorPrograms);
-  if (calcProgramSelect) calcProgramSelect.addEventListener('change', calculateScholarship);
-  if (calcGradeSlider) calcGradeSlider.addEventListener('input', calculateScholarship);
-  
-  const modalityInputs = document.querySelectorAll('input[name="calc-modality"]');
-  modalityInputs.forEach(input => input.addEventListener('change', calculateScholarship));
-
   // FAQ Accordion
   window.toggleFaq = function(button) {
     const answer = button.nextElementSibling;
@@ -712,16 +459,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cerrar modal al presionar ESC o click afuera
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeProgramModal();
       closeLeadsModal();
     }
   });
-
-  if (programModal) {
-    programModal.addEventListener('click', (e) => {
-      if (e.target === programModal) closeProgramModal();
-    });
-  }
 
   if (leadsModal) {
     leadsModal.addEventListener('click', (e) => {
@@ -732,5 +472,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializar
   populateProgramSelects();
   renderPrograms();
-  calculateScholarship();
 });
