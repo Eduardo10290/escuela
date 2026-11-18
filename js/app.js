@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!prog) return;
 
     const waMessage = encodeURIComponent(
-      `¡Hola Instituto Universitario L.A.! 👋\n\n` +
+      `¡Hola Instituto Universitario A.L.! 👋\n\n` +
       `Me interesa recibir información sobre:\n` +
       `🎓 *Programa:* ${prog.name}\n` +
       `📚 *Nivel:* ${prog.levelName}\n` +
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.requestColegiatura = function() {
     const message = encodeURIComponent(
-      `¡Hola Instituto Universitario L.A.! 👋\n\n` +
+      `¡Hola Instituto Universitario A.L.! 👋\n\n` +
       `Quiero calcular mi colegiatura para el nivel: *${inscriptionLevel}*.\n` +
       `¿Me pueden compartir la información de costos y modalidades?`
     );
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.requestFechas = function() {
     const message = encodeURIComponent(
-      `¡Hola Instituto Universitario L.A.! 👋\n\n` +
+      `¡Hola Instituto Universitario A.L.! 👋\n\n` +
       `Quiero información sobre las fechas de inicio disponibles para el nivel: *${inscriptionLevel}*.\n` +
       `Entiendo que hay inicios cada 3 meses y que el primero es en diciembre.`
     );
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const waMessage = encodeURIComponent(
-        `¡Hola Instituto Universitario L.A.! 👋 Mi nombre es *${name}*.\n\n` +
+        `¡Hola Instituto Universitario A.L.! 👋 Mi nombre es *${name}*.\n\n` +
         `Solicito información para:\n` +
         `🎓 *Programa:* ${program}\n` +
         `📍 *Modalidad:* ${modality}\n` +

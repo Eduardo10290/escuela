@@ -1,6 +1,6 @@
-# 🎓 Portal Universitario — Instituto Universitario L.A.
+# 🎓 Portal Universitario — Instituto Universitario A.L.
 
-Plataforma web institucional del **Instituto Universitario L.A.** — *La puerta al éxito*.
+Plataforma web institucional del **Instituto Universitario A.L.** — *La puerta al éxito*.
 
 ---
 
@@ -96,7 +96,7 @@ npx serve .
 
 ## 🛠️ ¿Cómo personalizar la información?
 
-- **Cambiar el nombre de la institución o el eslogan:** Edita `index.html` en el `<header>` y el `<footer>`. El nombre actual es *Instituto Universitario L.A.* y el eslogan *La puerta al éxito*.
+- **Cambiar el nombre de la institución o el eslogan:** Edita `index.html` en el `<header>` y el `<footer>`. El nombre actual es *Instituto Universitario A.L.* y el eslogan *La puerta al éxito*.
 - **Cambiar el logo de la escuela:** Reemplaza el archivo `img/logo-instituto-al.png` (se usa en el encabezado y el pie de página).
 - **Cambiar el icono de la escuela (favicon):** Reemplaza los archivos `favicon-16x16.png`, `favicon-32x32.png`, `favicon.ico` y `apple-touch-icon.png` en la raíz de la carpeta. Todos se generan a partir del logo institucional.
 - **Cambiar la lista de documentos:** Reemplaza `docs/lista-documentos-2026-2027.pdf` y actualiza el texto de la sección de inscripción en `index.html` si cambian los requisitos.
