@@ -1,28 +1,43 @@
 # 🎓 Portal Universitario — Instituto Universitario L.A.
 
-Plataforma web institucional y comercial de alta conversión para el **Instituto Universitario L.A.** — *La puerta al éxito*.
+Plataforma web institucional del **Instituto Universitario L.A.** — *La puerta al éxito*.
 
 ---
 
-## 📚 Oferta Académica Incluida (12 Programas con Validez Oficial SEP)
+## 📚 Oferta Académica Incluida (25 Programas con Validez Oficial SEP)
 
-### 🎓 Licenciaturas (5):
-1. **Licenciatura en Educación** (RVOE Federal 2024-EDU-0418)
-2. **Licenciatura en Pedagogía** (RVOE Federal 2024-PED-0512)
-3. **Licenciatura en Psicología** (RVOE Federal 2024-PSI-0630)
-4. **Licenciatura en Administración** (RVOE Federal 2024-ADM-0711)
-5. **Licenciatura en Lengua Inglesa** (RVOE Federal 2024-ING-0822)
+### 🎓 Licenciaturas (18):
+1. Ciencias de la Comunicación
+2. Derecho
+3. Informática Administrativa
+4. Psicología
+5. Administración
+6. Contaduría
+7. Criminología y Criminalística
+8. Lengua Inglesa
+9. Mercadotecnia
+10. Educación
+11. Pedagogía
+12. Administración Turística (mixta)
+13. Negocios Internacionales
+14. Ciencias Forenses
+15. Administración Pública y Ciencias Políticas
+16. Comercio Internacional y Aduanas
+17. Enfermería
+18. Trabajo Social *(por confirmar)*
 
 ### 🏅 Maestrías (5):
-1. **Maestría en Educación** (RVOE Federal 2024-POS-1015)
-2. **Maestría en Ciencias de la Educación** (RVOE Federal 2024-POS-1019)
-3. **Maestría en Administración (MBA)** (RVOE Federal 2024-POS-1030)
-4. **Maestría en Finanzas** (RVOE Federal 2024-POS-1044)
-5. **Maestría en Auditoría** (RVOE Federal 2024-POS-1052)
+1. Maestría en Educación
+2. Maestría en Ciencias de la Educación
+3. Maestría en Administración (MBA)
+4. Maestría en Finanzas
+5. Maestría en Auditoría
 
 ### 🏛️ Doctorados (2):
-1. **Doctorado en Educación** (RVOE Federal 2024-DOC-2011)
-2. **Doctorado en Alta Dirección** (RVOE Federal 2024-DOC-2025)
+1. Doctorado en Educación
+2. Doctorado en Alta Dirección
+
+Todos los programas se muestran con **Validez Oficial SEP**.
 
 ---
 
@@ -31,12 +46,12 @@ Plataforma web institucional y comercial de alta conversión para el **Instituto
 1. **Hero de Alta Conversión (Captura de Aspirantes):**
    - Cintillo con promoción de nuevo ingreso.
    - Formulario rápido en el banner principal para recibir prospectos de inmediato.
-   - Badges de confianza: RVOE SEP, titulación directa y contacto directo por WhatsApp.
+   - Mensajes de confianza: Validez Oficial SEP, titulación directa y contacto por WhatsApp.
 
-2. **Explorador Interactivo de Carreras:**
-   - Filtros por nivel: *Todos (12)*, *Licenciaturas (5)*, *Maestrías (5)*, *Doctorados (2)*.
-   - Buscador en tiempo real por nombre de carrera, área o materias.
-   - Tarjetas modernas con fotografía, duración, modalidades y botón **"Solicitar Informes por WhatsApp"** que envía el programa elegido directamente al asesor.
+2. **Oferta Académica en Lista:**
+   - Los programas se muestran como una lista de texto agrupada por nivel: **Licenciaturas**, **Maestrías** y **Doctorados**.
+   - Cada programa muestra duración, modalidades y su Validez Oficial SEP.
+   - Botón **"Solicitar informes"** que abre WhatsApp con el programa elegido ya escrito en el mensaje.
 
 3. **Sección de Inscripción en 4 pasos:**
    - **Elige tu nivel:** Revalidación · Licenciatura, Maestría o Doctorado.
@@ -50,16 +65,13 @@ Plataforma web institucional y comercial de alta conversión para el **Instituto
 5. **Galería Institucional:**
    - Muestra las piezas promocionales del Instituto (Licenciatura, Maestría y Doctorado) con apertura de cada imagen en tamaño completo.
 
-6. **Integración con WhatsApp y Teléfono:**
+6. **Ubicación:**
+   - Mapa de Google integrado al final de la página para que los aspirantes localicen las instalaciones.
+
+7. **Integración con WhatsApp y Teléfono:**
    - Botón flotante de WhatsApp con efecto de pulso.
    - Al enviar cualquier formulario, se genera automáticamente un enlace de WhatsApp con el mensaje estructurado (nombre, programa, modalidad, promedio y contacto) listo para el equipo de admisiones.
    - Teléfono fijo enlazado con `tel:` para llamar directo desde el celular.
-
-7. **CRM Local de Aspirantes (Panel de Control de Prospectos):**
-   - Guarda automáticamente cada registro en el navegador (`localStorage`).
-   - Accesible desde el botón *"Portal Aspirantes (CRM)"* en la barra superior o pie de página.
-   - Permite visualizar la lista completa de prospectos registrados.
-   - **Botón de exportación a archivo CSV (Excel)** con un solo clic.
 
 ---
 
@@ -68,7 +80,7 @@ Plataforma web institucional y comercial de alta conversión para el **Instituto
 ### Forma 1: Directo en tu navegador (Sin instalar nada)
 Haz doble clic sobre el archivo `index.html` de esta carpeta para que se abra en Google Chrome, Microsoft Edge, Safari o tu navegador preferido.
 
-> La página ya no depende de internet: Tailwind, Lucide, las fuentes y las imágenes están guardadas localmente en las carpetas `vendor/`, `img/` y `docs/`.
+> La página funciona sin internet: Tailwind, Lucide, las fuentes y las imágenes están guardadas localmente en las carpetas `vendor/`, `img/` y `docs/`. El único elemento externo es el mapa de Google.
 
 ### Forma 2: Con servidor local (Opcional)
 Si tienes Node.js instalado, puedes ejecutar en la terminal de esta carpeta:
@@ -92,4 +104,5 @@ npx serve .
 - **Cambiar los teléfonos:**
   - Teléfono fijo: busca `tel:+527221328421` y el texto `722 132 8421`.
   - WhatsApp: busca `527226119681` en `index.html` y en `js/app.js` (formato internacional sin signos: `52` + número).
-- **Añadir o modificar materias:** Abre el archivo `js/programs-data.js`. Cada programa tiene sus cuatrimestres y datos fácilmente editables. La página no muestra precios ni colegiaturas.
+- **Cambiar la ubicación:** En `index.html`, busca la sección `id="ubicacion"` y reemplaza el `src` del `iframe` por el enlace de Google Maps que corresponda.
+- **Agregar o modificar programas:** Abre el archivo `js/programs-data.js`. Cada programa incluye nombre, nivel, duración, modalidades, validez y un resumen breve. La página no muestra precios ni colegiaturas.

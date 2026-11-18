@@ -3,179 +3,125 @@
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicialización de estado
-  let currentFilter = 'all';
-  let searchQuery = '';
-  
   // Elementos DOM
-  const programsGrid = document.getElementById('programs-grid');
-  const programCountBadge = document.getElementById('program-count-badge');
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const searchInput = document.getElementById('search-program');
-  
+  const programsList = document.getElementById('programs-list');
+
   // Formulario de Admisión / Aspirante
   const leadForm = document.getElementById('lead-form');
   const formProgramSelect = document.getElementById('form-program');
   const formNotificationToast = document.getElementById('notification-toast');
   const toastMessage = document.getElementById('toast-message');
 
-  // Modal de Administración de Prospectos (CRM Local)
-  const leadsModal = document.getElementById('leads-modal');
-  const openLeadsBtn = document.getElementById('open-leads-btn');
-  const closeLeadsBtn = document.getElementById('close-leads-btn');
-  const leadsTableBody = document.getElementById('leads-table-body');
-  const exportCsvBtn = document.getElementById('export-csv-btn');
-  const clearLeadsBtn = document.getElementById('clear-leads-btn');
-
   // Menú Móvil
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
+  const WA_NUMBER = '527226119681';
+
   // ============================================================
-  // 1. POBLAR SELECTORES CON LOS 12 PROGRAMAS
+  // 1. POBLAR SELECTORES CON TODOS LOS PROGRAMAS
   // ============================================================
   function populateProgramSelects() {
-    if (!formProgramSelect) return;
+    const heroProgramSelect = document.getElementById('hero-program');
+    const selects = [formProgramSelect, heroProgramSelect].filter(Boolean);
 
-    // Llenar select del formulario principal
-    formProgramSelect.innerHTML = '<option value="">Selecciona tu programa de interés...</option>';
-    
-    // Grupos para formulario
-    const optGroupLic = document.createElement('optgroup');
-    optGroupLic.label = 'Licenciaturas';
-    const optGroupMae = document.createElement('optgroup');
-    optGroupMae.label = 'Maestrías';
-    const optGroupDoc = document.createElement('optgroup');
-    optGroupDoc.label = 'Doctorados';
+    selects.forEach(select => {
+      select.innerHTML = '<option value="">Selecciona tu programa de interés...</option>';
 
-    ACADEMIC_PROGRAMS.forEach(prog => {
-      const opt = document.createElement('option');
-      opt.value = prog.name;
-      opt.textContent = `${prog.name} (${prog.modalities.join(', ')})`;
-      if (prog.level === 'licenciatura') optGroupLic.appendChild(opt);
-      else if (prog.level === 'maestria') optGroupMae.appendChild(opt);
-      else if (prog.level === 'doctorado') optGroupDoc.appendChild(opt);
+      const optGroupLic = document.createElement('optgroup');
+      optGroupLic.label = 'Licenciaturas';
+      const optGroupMae = document.createElement('optgroup');
+      optGroupMae.label = 'Maestrías';
+      const optGroupDoc = document.createElement('optgroup');
+      optGroupDoc.label = 'Doctorados';
+
+      ACADEMIC_PROGRAMS.forEach(prog => {
+        const opt = document.createElement('option');
+        opt.value = prog.name;
+        opt.textContent = `${prog.name} (${prog.modalities.join(', ')})`;
+        if (prog.level === 'licenciatura') optGroupLic.appendChild(opt);
+        else if (prog.level === 'maestria') optGroupMae.appendChild(opt);
+        else if (prog.level === 'doctorado') optGroupDoc.appendChild(opt);
+      });
+
+      select.appendChild(optGroupLic);
+      select.appendChild(optGroupMae);
+      select.appendChild(optGroupDoc);
     });
-
-    formProgramSelect.appendChild(optGroupLic);
-    formProgramSelect.appendChild(optGroupMae);
-    formProgramSelect.appendChild(optGroupDoc);
   }
 
   // ============================================================
-  // 2. RENDERIZAR CARDS DE PROGRAMAS CON DISEÑO MODERNO
+  // 2. RENDERIZAR LA OFERTA ACADÉMICA COMO LISTA POR NIVEL
   // ============================================================
+  const LEVEL_GROUPS = [
+    {
+      level: 'licenciatura',
+      title: 'Licenciaturas',
+      color: 'bg-blue-50 text-blue-700',
+      icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.42A12 12 0 0112 21a12 12 0 01-6.16-10.42L12 14z"></path></svg>'
+    },
+    {
+      level: 'maestria',
+      title: 'Maestrías',
+      color: 'bg-purple-50 text-purple-700',
+      icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+    },
+    {
+      level: 'doctorado',
+      title: 'Doctorados',
+      color: 'bg-amber-50 text-amber-700',
+      icon: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 8.7l5.4-.8L12 3z"></path></svg>'
+    }
+  ];
+
   function renderPrograms() {
-    if (!programsGrid) return;
+    if (!programsList) return;
 
-    let filtered = ACADEMIC_PROGRAMS.filter(prog => {
-      const matchesFilter = currentFilter === 'all' || prog.level === currentFilter;
-      const q = searchQuery.toLowerCase().trim();
-      const matchesSearch = !q || 
-        prog.name.toLowerCase().includes(q) || 
-        prog.summary.toLowerCase().includes(q) ||
-        prog.area.toLowerCase().includes(q) ||
-        prog.cuatrimestres.some(c => c.materias.some(m => m.toLowerCase().includes(q)));
-      return matchesFilter && matchesSearch;
-    });
+    programsList.innerHTML = LEVEL_GROUPS.map(group => {
+      const programs = ACADEMIC_PROGRAMS.filter(p => p.level === group.level);
+      if (programs.length === 0) return '';
 
-    if (programCountBadge) {
-      programCountBadge.textContent = `${filtered.length} programa${filtered.length === 1 ? '' : 's'} disponible${filtered.length === 1 ? '' : 's'}`;
-    }
-
-    if (filtered.length === 0) {
-      programsGrid.innerHTML = `
-        <div class="col-span-full py-16 text-center bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-          <div class="w-16 h-16 mx-auto mb-4 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      const items = programs.map(prog => `
+        <li class="px-5 sm:px-8 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 transition">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <p class="text-sm font-bold text-slate-800">${prog.name}</p>
+              ${prog.note ? `<span class="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded-full">${prog.note}</span>` : ''}
+              ${prog.badge ? `<span class="text-[10px] font-bold uppercase tracking-wider text-orange-700 bg-orange-100 border border-orange-200 px-2 py-0.5 rounded-full">${prog.badge}</span>` : ''}
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">
+              ${prog.duration} · ${prog.modalities.join(' / ')}
+              <span class="text-emerald-700 font-semibold"> · ${prog.validez}</span>
+            </p>
           </div>
-          <h3 class="text-xl font-bold text-slate-800 mb-2">No encontramos programas con ese criterio</h3>
-          <p class="text-slate-600 mb-4">Intenta buscar otra palabra o restablece los filtros para ver la oferta académica.</p>
-          <button onclick="resetFilters()" class="px-5 py-2.5 bg-[#FF6500] hover:bg-[#E55800] text-white font-semibold rounded-xl text-sm transition">
-            Ver Todos los Programas
+          <button
+            type="button"
+            onclick="requestProgramInfo('${prog.id}')"
+            class="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] transition shadow-sm"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            Solicitar informes
           </button>
-        </div>
-      `;
-      return;
-    }
-
-    programsGrid.innerHTML = filtered.map(prog => {
-      // Color y etiqueta según nivel
-      let levelBadgeColor = 'bg-blue-100 text-blue-800 border-blue-200';
-      if (prog.level === 'maestria') levelBadgeColor = 'bg-purple-100 text-purple-800 border-purple-200';
-      if (prog.level === 'doctorado') levelBadgeColor = 'bg-amber-100 text-amber-900 border-amber-300';
+        </li>
+      `).join('');
 
       return `
-        <div class="card-hover-lift bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between transition-all group">
-          <!-- Imagen y Badges -->
-          <div class="relative h-48 w-full overflow-hidden bg-slate-100">
-            <img 
-              src="${prog.image}" 
-              alt="${prog.name}" 
-              loading="lazy" 
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-            
-            <!-- Badges superiores -->
-            <div class="absolute top-3 left-3 right-3 flex justify-between items-start gap-2">
-              <span class="px-3 py-1 text-xs font-bold rounded-full uppercase tracking-wider border shadow-sm ${levelBadgeColor}">
-                ${prog.levelName}
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="px-5 sm:px-8 py-5 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl ${group.color} flex items-center justify-center shrink-0">
+                ${group.icon}
               </span>
-              <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-500/95 text-white flex items-center gap-1 shadow-sm">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                SEP RVOE
-              </span>
-            </div>
-
-            <!-- Título superpuesto en la imagen -->
-            <div class="absolute bottom-3 left-4 right-4 text-white">
-              <span class="text-xs text-orange-300 font-semibold uppercase tracking-wider block mb-0.5">${prog.area}</span>
-              <h3 class="text-xl font-bold leading-snug drop-shadow-sm">${prog.name}</h3>
-            </div>
-          </div>
-
-          <!-- Contenido Central -->
-          <div class="p-5 flex-1 flex flex-col justify-between">
-            <div>
-              <!-- Duración y Modalidades -->
-              <div class="grid grid-cols-2 gap-2 text-xs text-slate-600 mb-4 pb-3 border-b border-slate-100">
-                <div class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-orange-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  <span><strong>Duración:</strong> ${prog.duration.split('(')[0]}</span>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                  <span><strong>Modalidad:</strong> En línea / Presencial</span>
-                </div>
-              </div>
-
-              <!-- Resumen -->
-              <p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-3">
-                ${prog.summary}
-              </p>
-
-              <!-- Tags de modalidades -->
-              <div class="flex flex-wrap gap-1.5 mb-5">
-                ${prog.modalities.map(m => `
-                  <span class="text-[11px] font-medium bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md">
-                    ${m}
-                  </span>
-                `).join('')}
+              <div>
+                <h3 class="text-lg font-extrabold text-[#0B192C] font-heading leading-tight">${group.title}</h3>
+                <p class="text-[11px] text-slate-500 font-medium">${programs.length} programa${programs.length === 1 ? '' : 's'} disponible${programs.length === 1 ? '' : 's'}</p>
               </div>
             </div>
-
-            <!-- Pie de Card y Acciones -->
-            <div class="pt-3 border-t border-slate-100">
-              <button 
-                onclick="requestProgramInfo('${prog.id}')"
-                class="w-full px-3 py-2.5 text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] rounded-xl transition shadow-sm text-center flex items-center justify-center gap-1.5"
-              >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                Solicitar Informes por WhatsApp
-              </button>
-            </div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">Validez Oficial SEP</span>
           </div>
+          <ul class="divide-y divide-slate-100">
+            ${items}
+          </ul>
         </div>
       `;
     }).join('');
@@ -188,23 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const prog = ACADEMIC_PROGRAMS.find(p => p.id === programId);
     if (!prog) return;
 
-    const waNumber = "527226119681";
     const waMessage = encodeURIComponent(
       `¡Hola Instituto Universitario L.A.! 👋\n\n` +
       `Me interesa recibir información sobre:\n` +
       `🎓 *Programa:* ${prog.name}\n` +
       `📚 *Nivel:* ${prog.levelName}\n` +
-      `🆔 *Reconocimiento:* ${prog.rvoe}\n` +
+      `✅ *Validez:* ${prog.validez}\n` +
       `⏱️ *Duración:* ${prog.duration}\n` +
       `🏫 *Modalidades:* ${prog.modalities.join(', ')}\n\n` +
       `¿Me pueden enviar la información de inscripción y colegiatura?`
     );
 
-    window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
+    window.open(`https://wa.me/${WA_NUMBER}?text=${waMessage}`, '_blank');
   };
 
   // ============================================================
-  // 3b. SECCIÓN DE INSCRIPCIÓN: NIVEL, COLEGIATURA Y FECHAS
+  // 4. SECCIÓN DE INSCRIPCIÓN: NIVEL, COLEGIATURA Y FECHAS
   // ============================================================
   let inscriptionLevel = 'Revalidación · Licenciatura';
 
@@ -232,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Quiero calcular mi colegiatura para el nivel: *${inscriptionLevel}*.\n` +
       `¿Me pueden compartir la información de costos y modalidades?`
     );
-    window.open(`https://wa.me/527226119681?text=${message}`, '_blank');
+    window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
   };
 
   window.requestFechas = function() {
@@ -241,11 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
       `Quiero información sobre las fechas de inicio disponibles para el nivel: *${inscriptionLevel}*.\n` +
       `Entiendo que hay inicios cada 3 meses y que el primero es en diciembre.`
     );
-    window.open(`https://wa.me/527226119681?text=${message}`, '_blank');
+    window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
   };
 
   // ============================================================
-  // 5. REGISTRO DE PROSPECTOS Y ENVÍO A WHATSAPP
+  // 5. REGISTRO DE ASPIRANTES Y ENVÍO A WHATSAPP
   // ============================================================
   if (leadForm) {
     leadForm.addEventListener('submit', (e) => {
@@ -264,25 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Guardar prospecto localmente (CRM para la escuela)
-      const newLead = {
-        id: Date.now(),
-        fecha: new Date().toLocaleString('es-MX'),
-        nombre: name,
-        telefono: phone,
-        email: email,
-        programa: program,
-        modalidad: modality,
-        promedio: average,
-        campus: campus
-      };
-
-      const existingLeads = JSON.parse(localStorage.getItem('utc_school_leads') || '[]');
-      existingLeads.unshift(newLead);
-      localStorage.setItem('utc_school_leads', JSON.stringify(existingLeads));
-
-      // Construir mensaje de WhatsApp institucional
-      const waNumber = "527226119681"; // Número de admisiones configurable
       const waMessage = encodeURIComponent(
         `¡Hola Instituto Universitario L.A.! 👋 Mi nombre es *${name}*.\n\n` +
         `Solicito información para:\n` +
@@ -299,9 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       leadForm.reset();
 
-      // Abrir WhatsApp en pestaña nueva
       setTimeout(() => {
-        window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
+        window.open(`https://wa.me/${WA_NUMBER}?text=${waMessage}`, '_blank');
       }, 1500);
     });
   }
@@ -319,127 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4500);
   }
 
-  // ============================================================
-  // 6. PORTAL DE ADMINISTRACIÓN LOCAL DE PROSPECTOS (LEADS CRM)
-  // ============================================================
-  window.openLeadsModal = function() {
-    if (!leadsModal || !leadsTableBody) return;
-    const leads = JSON.parse(localStorage.getItem('utc_school_leads') || '[]');
-
-    if (leads.length === 0) {
-      leadsTableBody.innerHTML = `
-        <tr>
-          <td colspan="6" class="px-4 py-8 text-center text-slate-500 text-xs">
-            Aún no hay aspirantes registrados. Cuando los prospectos llenen el formulario aparecerán aquí.
-          </td>
-        </tr>
-      `;
-    } else {
-      leadsTableBody.innerHTML = leads.map(l => `
-        <tr class="border-b border-slate-100 hover:bg-slate-50">
-          <td class="px-4 py-3 text-xs text-slate-500">${l.fecha}</td>
-          <td class="px-4 py-3 text-xs font-semibold text-slate-800">${l.nombre}</td>
-          <td class="px-4 py-3 text-xs text-slate-600">
-            <a href="https://wa.me/52${l.telefono.replace(/\D/g,'')}" target="_blank" class="text-emerald-600 hover:underline flex items-center gap-1">
-              ${l.telefono}
-            </a>
-          </td>
-          <td class="px-4 py-3 text-xs text-slate-600">${l.email}</td>
-          <td class="px-4 py-3 text-xs font-medium text-orange-600">${l.programa} (${l.modalidad})</td>
-          <td class="px-4 py-3 text-xs text-slate-700 font-bold">${l.promedio}</td>
-        </tr>
-      `).join('');
-    }
-
-    leadsModal.classList.add('active');
-  };
-
-  window.closeLeadsModal = function() {
-    if (leadsModal) leadsModal.classList.remove('active');
-  };
-
-  if (openLeadsBtn) openLeadsBtn.addEventListener('click', openLeadsModal);
-  if (closeLeadsBtn) closeLeadsBtn.addEventListener('click', closeLeadsModal);
-
-  // Exportar prospectos a archivo CSV
-  if (exportCsvBtn) {
-    exportCsvBtn.addEventListener('click', () => {
-      const leads = JSON.parse(localStorage.getItem('utc_school_leads') || '[]');
-      if (leads.length === 0) {
-        alert('No hay prospectos para exportar.');
-        return;
-      }
-
-      let csv = "Fecha,Nombre,Telefono,Email,Programa,Modalidad,Promedio,Campus\n";
-      leads.forEach(l => {
-        csv += `"${l.fecha}","${l.nombre}","${l.telefono}","${l.email}","${l.programa}","${l.modalidad}","${l.promedio}","${l.campus}"\n`;
-      });
-
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.setAttribute("href", url);
-      link.setAttribute("download", `prospectos_escuela_${new Date().toISOString().slice(0,10)}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  }
-
-  if (clearLeadsBtn) {
-    clearLeadsBtn.addEventListener('click', () => {
-      if (confirm('¿Deseas vaciar la lista de prospectos locales?')) {
-        localStorage.removeItem('utc_school_leads');
-        openLeadsModal();
-      }
-    });
-  }
-
-  // ============================================================
-  // 7. EVENTOS DE FILTRADO Y BÚSQUEDA
-  // ============================================================
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => {
-        b.classList.remove('bg-[#FF6500]', 'text-white', 'shadow-sm');
-        b.classList.add('bg-white', 'text-slate-600', 'hover:bg-slate-100');
-      });
-      btn.classList.add('bg-[#FF6500]', 'text-white', 'shadow-sm');
-      btn.classList.remove('bg-white', 'text-slate-600', 'hover:bg-slate-100');
-
-      currentFilter = btn.dataset.filter;
-      renderPrograms();
-    });
-  });
-
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      renderPrograms();
-    });
-  }
-
-  window.resetFilters = function() {
-    searchQuery = '';
-    currentFilter = 'all';
-    if (searchInput) searchInput.value = '';
-    filterButtons.forEach((b, index) => {
-      if (index === 0) {
-        b.classList.add('bg-[#FF6500]', 'text-white', 'shadow-sm');
-        b.classList.remove('bg-white', 'text-slate-600');
-      } else {
-        b.classList.remove('bg-[#FF6500]', 'text-white', 'shadow-sm');
-        b.classList.add('bg-white', 'text-slate-600');
-      }
-    });
-    renderPrograms();
-  };
-
   // FAQ Accordion
   window.toggleFaq = function(button) {
     const answer = button.nextElementSibling;
     const icon = button.querySelector('.faq-icon');
-    
+
     if (answer.classList.contains('hidden')) {
       answer.classList.remove('hidden');
       if (icon) icon.classList.add('rotate-180');
@@ -453,19 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
-    });
-  }
-
-  // Cerrar modal al presionar ESC o click afuera
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeLeadsModal();
-    }
-  });
-
-  if (leadsModal) {
-    leadsModal.addEventListener('click', (e) => {
-      if (e.target === leadsModal) closeLeadsModal();
     });
   }
 

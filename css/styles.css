@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 /* Custom Gradients */
 .gradient-hero {
-  background: linear-gradient(135deg, #091524 0%, #0F2A4A 50%, #163B66 100%);
+  background: linear-gradient(135deg, #37475b 0%, #41546b 50%, #4b617a 100%);
 }
 
 .gradient-orange {

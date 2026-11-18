@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Instituto Universitario L.A. | La puerta al éxito</title>
-  <meta name="description" content="Oferta académica moderna con Validez Oficial SEP (RVOE). Licenciaturas, Maestrías y Doctorados en Educación, Pedagogía, Psicología, Administración, Finanzas, Auditoría y Lengua Inglesa. Modalidades Presencial, En Línea y Ejecutiva." />
+  <meta name="description" content="Oferta académica con Validez Oficial SEP. 18 Licenciaturas, Maestrías y Doctorados para construir tu carrera profesional. Modalidades Presencial, En Línea y Ejecutiva." />
 
   <!-- Favicon Institucional (Icono de la Escuela / Instituto Universitario L.A.) -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -66,11 +66,6 @@
         </a>
         <span class="text-slate-600 hidden md:inline">|</span>
         <a href="#modalidades" class="hover:text-white transition hidden md:inline">Campus y Modalidades</a>
-        <span class="text-slate-600 hidden md:inline">|</span>
-        <button id="open-leads-btn" class="hover:text-orange-400 flex items-center gap-1 transition text-slate-400 hover:text-white" title="Ver base de datos de aspirantes registrados">
-          <i data-lucide="database" class="w-3.5 h-3.5"></i>
-          <span class="hidden lg:inline">Portal Aspirantes (CRM)</span>
-        </button>
       </div>
     </div>
   </div>
@@ -87,10 +82,10 @@
           <img 
             src="img/logo-instituto-al.png" 
             alt="Logo Instituto Universitario L.A." 
-            class="h-12 w-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
+            class="h-14 w-14 sm:h-16 sm:w-16 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
           />
           <div>
-            <span class="text-xl font-extrabold tracking-tight text-[#0B192C] block font-heading leading-tight">
+            <span class="text-base sm:text-xl font-extrabold tracking-tight text-[#0B192C] block font-heading leading-tight">
               INSTITUTO <span class="text-[#FF6500]">UNIVERSITARIO L.A.</span>
             </span>
             <span class="text-[10px] tracking-wider uppercase font-semibold text-slate-500 block">
@@ -100,23 +95,24 @@
         </a>
 
         <!-- Enlaces de Navegación de Escritorio -->
-        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-700">
+        <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-700 whitespace-nowrap">
           <a href="#oferta" class="hover:text-[#FF6500] transition flex items-center gap-1">
-            Oferta Académica
-            <span class="text-[10px] bg-orange-100 text-[#FF6500] font-bold px-1.5 py-0.5 rounded">12</span>
+            Oferta
+            <span class="text-[10px] bg-orange-100 text-[#FF6500] font-bold px-1.5 py-0.5 rounded">25</span>
           </a>
           <a href="#modalidades" class="hover:text-[#FF6500] transition">Modalidades</a>
-          <a href="#por-que-nosotros" class="hover:text-[#FF6500] transition">¿Por qué estudiar aquí?</a>
+          <a href="#por-que-nosotros" class="hover:text-[#FF6500] transition">Nosotros</a>
           <a href="#galeria" class="hover:text-[#FF6500] transition">Galería</a>
           <a href="#admisiones" class="hover:text-[#FF6500] transition">Admisiones</a>
           <a href="#preguntas-frecuentes" class="hover:text-[#FF6500] transition">FAQ</a>
+          <a href="#ubicacion" class="hover:text-[#FF6500] transition">Ubicación</a>
         </nav>
 
         <!-- CTA Header -->
         <div class="hidden sm:flex items-center gap-3">
           <a 
             href="#registro-aspirante" 
-            class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] transition shadow-md shadow-orange-500/25 flex items-center gap-2 group"
+            class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] transition shadow-md shadow-orange-500/25 flex items-center gap-2 group whitespace-nowrap"
           >
             <span>Inscríbete Hoy</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
@@ -135,12 +131,13 @@
 
     <!-- Menú Desplegable Móvil -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
-      <a href="#oferta" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Oferta Académica (12 Programas)</a>
+      <a href="#oferta" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Oferta Académica (25 Programas)</a>
       <a href="#modalidades" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Modalidades de Estudio</a>
       <a href="#por-que-nosotros" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">¿Por qué elegirnos?</a>
       <a href="#galeria" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Galería</a>
       <a href="#admisiones" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Proceso de Admisión</a>
       <a href="#preguntas-frecuentes" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Preguntas Frecuentes</a>
+      <a href="#ubicacion" class="block py-2 text-sm font-semibold text-slate-800 hover:text-orange-600">Ubicación</a>
       <div class="pt-2 flex flex-col gap-2">
         <a href="#registro-aspirante" class="w-full text-center py-3 bg-[#FF6500] text-white font-bold rounded-xl text-sm shadow">
           Solicitar Informes / Inscribirme
@@ -163,26 +160,30 @@
         <!-- Columna Izquierda: Mensaje Principal y Propuesta de Valor -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           
-          <!-- Badge RVOE Oficial -->
+          <!-- Badge Validez Oficial -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs text-slate-200 backdrop-blur-md">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span class="font-semibold tracking-wide">Programas 100% con Validez Oficial SEP (RVOE)</span>
+            <span class="font-semibold tracking-wide">Programas con Validez Oficial SEP</span>
           </div>
 
           <!-- Titular Principal -->
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] font-heading">
-            Construye tu futuro profesional con <span class="text-gradient-orange">alta empleabilidad</span>
+          <h1 class="font-extrabold tracking-tight leading-[1.12] font-heading">
+            <span class="block text-2xl sm:text-3xl md:text-4xl text-slate-200 font-bold">¿Carrera trunca?</span>
+            <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gradient-orange">¡Resolvemos tu problema!</span>
+            <span class="block text-base sm:text-lg md:text-xl text-slate-300 font-semibold mt-4">Programa con validez oficial SEP</span>
+            <span class="block text-2xl sm:text-3xl md:text-4xl mt-2">Construye tu carrera profesional</span>
+            <span class="block text-2xl sm:text-3xl md:text-4xl text-gradient-orange">Cumple tus sueños</span>
           </h1>
 
           <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-            Licenciaturas en <strong>Educación, Pedagogía, Psicología, Administración y Lengua Inglesa</strong>; Maestrías y Doctorados diseñados para profesionistas que quieren crecer laboralmente.
+            Licenciaturas, Maestrías y Doctorados diseñados para profesionistas que quieren retomar sus estudios, crecer laboralmente y titularse con <strong>Validez Oficial SEP</strong>.
           </p>
 
           <!-- Ventajas Rápidas -->
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left">
             <div class="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
-              <div class="text-[#FF6500] font-extrabold text-lg">RVOE SEP</div>
-              <div class="text-xs text-slate-300">Validez oficial federal</div>
+              <div class="text-[#FF6500] font-extrabold text-lg">Validez SEP</div>
+              <div class="text-xs text-slate-300">Oficial y federal</div>
             </div>
             <div class="bg-white/5 border border-white/10 rounded-xl p-3 backdrop-blur-sm">
               <div class="text-cyan-400 font-extrabold text-lg">3 Modalidades</div>
@@ -200,7 +201,7 @@
               href="#oferta" 
               class="px-7 py-3.5 rounded-xl font-bold text-sm bg-[#FF6500] hover:bg-[#E55800] text-white transition shadow-lg shadow-orange-500/30 flex items-center gap-2 group"
             >
-              <span>Ver los 12 Programas</span>
+              <span>Ver los 25 Programas</span>
               <i data-lucide="chevron-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
             </a>
             <a 
@@ -350,25 +351,25 @@
         </div>
         <div class="space-y-1">
           <div class="text-2xl sm:text-3xl font-extrabold text-orange-600 font-heading">100%</div>
-          <div class="text-xs text-slate-600 font-medium">Programas con RVOE SEP Federal</div>
+          <div class="text-xs text-slate-600 font-medium">Programas con Validez Oficial SEP</div>
         </div>
         <div class="space-y-1">
-          <div class="text-2xl sm:text-3xl font-extrabold text-blue-700 font-heading">12 Programas</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-blue-700 font-heading">25 Programas</div>
           <div class="text-xs text-slate-600 font-medium">Licenciaturas, maestrías y doctorados</div>
         </div>
         <div class="space-y-1">
-          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-heading">9 Opciones</div>
-          <div class="text-xs text-slate-600 font-medium">De titulación directa sin tesis</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 font-heading">Opciones</div>
+          <div class="text-xs text-slate-600 font-medium">De titulación directa a tu alcance</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       5. OFERTA ACADÉMICA INTERACTIVA (LOS 12 PROGRAMAS)
+       5. OFERTA ACADÉMICA (LISTA POR NIVEL)
   ============================================================ -->
   <section id="oferta" class="py-20 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Título de Sección -->
       <div class="text-center max-w-3xl mx-auto mb-12">
@@ -377,66 +378,16 @@
           Oferta Académica 2026
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight">
-          Elige el programa que impulsará tu vocación
+          Elige el programa a tu medida
         </h2>
         <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
-          Nuestra oferta abarca licenciaturas, maestrías y doctorados diseñados con los más altos estándares pedagógicos y validez oficial ante la SEP.
+          18 licenciaturas, 5 maestrías y 2 doctorados con Validez Oficial SEP. Elige el programa que necesitas y solicita informes directo por WhatsApp.
         </p>
       </div>
 
-      <!-- Barra de Filtros y Búsqueda -->
-      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
-        
-        <!-- Pestañas de Nivel -->
-        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-          <button 
-            data-filter="all" 
-            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-[#FF6500] text-white shadow-sm transition"
-          >
-            Todos (12)
-          </button>
-          <button 
-            data-filter="licenciatura" 
-            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 transition"
-          >
-            Licenciaturas (5)
-          </button>
-          <button 
-            data-filter="maestria" 
-            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 transition"
-          >
-            Maestrías (5)
-          </button>
-          <button 
-            data-filter="doctorado" 
-            class="filter-btn px-4 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-600 hover:bg-slate-100 transition"
-          >
-            Doctorados (2)
-          </button>
-        </div>
-
-        <!-- Buscador en Tiempo Real -->
-        <div class="relative w-full md:w-80">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
-          <input 
-            type="text" 
-            id="search-program" 
-            placeholder="Buscar por carrera o materia..." 
-            class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
-          />
-        </div>
-
-      </div>
-
-      <!-- Contador dinámico de resultados -->
-      <div class="flex items-center justify-between mb-6 text-xs text-slate-500 px-1">
-        <span id="program-count-badge" class="font-semibold text-slate-700">Cargando oferta académica...</span>
-        <span>Haz clic en <strong>Solicitar Informes</strong> para recibir atención personalizada por WhatsApp</span>
-      </div>
-
-      <!-- Grid de Programas Académicos (Poblado por JS) -->
-      <div id="programs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Renderizado dinámico desde js/programs-data.js -->
+      <!-- Lista de Programas Académicos (Poblado por JS) -->
+      <div id="programs-list" class="space-y-8">
+        <!-- Renderizado dinámico desde js/app.js -->
       </div>
 
     </div>
@@ -490,7 +441,7 @@
                 <i data-lucide="file-check" class="w-5 h-5"></i>
               </div>
               <div>
-                <h4 class="font-bold text-sm text-slate-800">RVOE SEP Federal</h4>
+                <h4 class="font-bold text-sm text-slate-800">Validez Oficial SEP</h4>
                 <p class="text-xs text-slate-500 mt-1">Cédula profesional con validez en toda la República Mexicana y apostillable al extranjero.</p>
               </div>
             </div>
@@ -930,11 +881,11 @@
             onclick="toggleFaq(this)" 
             class="w-full px-6 py-4 text-left font-bold text-sm text-slate-800 bg-slate-50 hover:bg-slate-100 flex items-center justify-between transition"
           >
-            <span>¿Los programas cuentan con validez oficial RVOE ante la SEP?</span>
+            <span>¿Los programas cuentan con Validez Oficial SEP?</span>
             <i data-lucide="chevron-down" class="faq-icon w-4 h-4 text-slate-500 transition-transform"></i>
           </button>
           <div class="p-6 text-xs text-slate-600 leading-relaxed border-t border-slate-100 hidden">
-            Sí, el 100% de nuestras Licenciaturas, Maestrías y Doctorados cuentan con Reconocimiento de Validez Oficial de Estudios (RVOE) emitido por la Secretaría de Educación Pública (SEP) a nivel federal, lo que garantiza la validez de tu título y la expedición de tu Cédula Profesional Federal.
+            Sí, el 100% de nuestras Licenciaturas, Maestrías y Doctorados cuentan con Validez Oficial SEP, lo que garantiza la validez de tu título y la expedición de tu Cédula Profesional.
           </div>
         </div>
 
@@ -976,20 +927,51 @@
   </section>
 
   <!-- ============================================================
-       12. FOOTER INSTITUCIONAL COMPLETO
+       12. UBICACIÓN
+  ============================================================ -->
+  <section id="ubicacion" class="py-20 bg-slate-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-orange-600 uppercase tracking-widest">Visítanos</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading mt-2">
+          Nuestra ubicación
+        </h2>
+        <p class="text-slate-600 text-sm mt-3">
+          Conoce nuestras instalaciones. Estamos para ayudarte a dar el siguiente paso.
+        </p>
+      </div>
+
+      <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-lg bg-white">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3766.0284747910614!2d-99.63917162478934!3d19.28112788196594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDE2JzUyLjEiTiA5OcKwMzgnMTEuOCJX!5e0!3m2!1ses!2smx!4v1794966930972!5m2!1ses!2smx"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Ubicación del Instituto Universitario L.A."
+          class="w-full h-[450px]"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13. FOOTER INSTITUCIONAL COMPLETO
   ============================================================ -->
   <footer class="bg-[#0B192C] text-slate-400 text-xs pt-16 pb-12 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pb-12 border-b border-white/10">
         
-        <!-- Identidad -->
-        <div class="lg:col-span-2 space-y-4">
+        <!-- Identidad y contacto -->
+        <div class="space-y-4">
           <div class="flex items-center gap-3">
             <img 
               src="img/logo-instituto-al.png" 
               alt="Logo Instituto Universitario L.A." 
-              class="h-12 w-12 object-contain rounded-lg bg-white p-0.5"
+              class="h-16 w-16 object-contain rounded-lg bg-white p-1"
             />
             <span class="text-lg font-bold text-white font-heading">INSTITUTO UNIVERSITARIO L.A.</span>
           </div>
@@ -997,57 +979,22 @@
             <span class="text-orange-400 font-semibold">La puerta al éxito.</span> Institución privada de educación superior dedicada a la formación de líderes con visión humanista, profesionalismo y pertinencia laboral.
           </p>
           <div class="pt-2 text-slate-400 space-y-1">
-            <p>📍 Av. Universidad #1500, Ciudad Universitaria</p>
             <p>📞 Teléfono: <a href="tel:+527221328421" class="hover:text-white transition">722 132 8421</a></p>
             <p>💬 WhatsApp: <a href="https://wa.me/527226119681" target="_blank" class="hover:text-white transition">722 611 9681</a></p>
             <p>✉️ Correo: informes@institutouniversitariola.edu.mx</p>
+            <p>📍 <a href="#ubicacion" class="hover:text-white transition">Ver ubicación en el mapa</a></p>
           </div>
         </div>
 
-        <!-- Licenciaturas -->
-        <div>
-          <h4 class="text-white font-bold text-sm mb-3">Licenciaturas</h4>
-          <ul class="space-y-2">
-            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Educación</a></li>
-            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Pedagogía</a></li>
-            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Psicología</a></li>
-            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Administración</a></li>
-            <li><a href="#oferta" onclick="resetFilters()" class="hover:text-white transition">Lengua Inglesa</a></li>
-          </ul>
-        </div>
-
-        <!-- Maestrías y Doctorados -->
-        <div>
-          <h4 class="text-white font-bold text-sm mb-3">Posgrados</h4>
-          <ul class="space-y-2">
-            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Educación</a></li>
-            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Ciencias de la Educación</a></li>
-            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Administración</a></li>
-            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Finanzas</a></li>
-            <li><a href="#oferta" class="hover:text-white transition">Mtría. en Auditoría</a></li>
-            <li class="pt-2 text-white font-bold text-[11px] uppercase tracking-wider">Doctorados:</li>
-            <li><a href="#oferta" class="hover:text-white transition">Doc. en Educación</a></li>
-            <li><a href="#oferta" class="hover:text-white transition">Doc. en Alta Dirección</a></li>
-          </ul>
-        </div>
-
-        <!-- Enlaces Rápidos y CRM -->
-        <div>
+        <!-- Accesos Directos -->
+        <div class="md:justify-self-end">
           <h4 class="text-white font-bold text-sm mb-3">Accesos Directos</h4>
           <ul class="space-y-2">
             <li><a href="#oferta" class="hover:text-white transition">Oferta Académica</a></li>
             <li><a href="#modalidades" class="hover:text-white transition">Modalidades de Estudio</a></li>
             <li><a href="#admisiones" class="hover:text-white transition">Requisitos de Inscripción</a></li>
             <li><a href="#registro-aspirante" class="hover:text-white transition">Formulario de Admisión</a></li>
-            <li class="pt-3">
-              <button 
-                onclick="openLeadsModal()" 
-                class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-orange-400 font-semibold text-[11px] transition flex items-center gap-1.5"
-              >
-                <i data-lucide="users" class="w-3.5 h-3.5"></i>
-                <span>Ver Aspirantes Registrados</span>
-              </button>
-            </li>
+            <li><a href="#ubicacion" class="hover:text-white transition">Ubicación</a></li>
           </ul>
         </div>
 
@@ -1055,7 +1002,7 @@
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
         <div>
-          © 2026 Instituto Universitario L.A. Todos los derechos reservados. La puerta al éxito. Planes con Reconocimiento de Validez Oficial ante la SEP.
+          © 2026 Instituto Universitario L.A. Todos los derechos reservados. La puerta al éxito. Planes con Validez Oficial SEP.
         </div>
         <div class="flex gap-4">
           <a href="#" class="hover:underline">Aviso de Privacidad</a>
@@ -1066,79 +1013,6 @@
 
     </div>
   </footer>
-
-  <!-- ============================================================
-       14. MODAL DEL CRM LOCAL DE PROSPECTOS REGISTRADOS
-  ============================================================ -->
-  <div id="leads-modal" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-    <div class="modal-content-panel relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
-      
-      <div class="bg-[#0B192C] text-white p-6 flex items-center justify-between">
-        <div>
-          <h3 class="text-xl font-bold flex items-center gap-2">
-            <i data-lucide="database" class="w-5 h-5 text-orange-400"></i>
-            Base de Datos de Aspirantes (CRM Escolar)
-          </h3>
-          <p class="text-xs text-slate-300 mt-1">Registros capturados en tiempo real a través de los formularios de la página.</p>
-        </div>
-        <button 
-          onclick="closeLeadsModal()" 
-          class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
-        >
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="p-4 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
-        <span class="text-xs text-slate-600 font-medium">
-          Los prospectos se guardan en el navegador y pueden ser exportados directamente a Excel / CSV.
-        </span>
-        <div class="flex gap-2">
-          <button 
-            id="export-csv-btn" 
-            class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm"
-          >
-            <i data-lucide="download" class="w-3.5 h-3.5"></i>
-            Descargar CSV para Excel
-          </button>
-          <button 
-            id="clear-leads-btn" 
-            class="px-3 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl text-xs font-semibold transition"
-          >
-            Vaciar Lista
-          </button>
-        </div>
-      </div>
-
-      <div class="overflow-x-auto flex-1 p-6">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-slate-100 text-slate-700 text-[11px] uppercase tracking-wider font-bold">
-              <th class="px-4 py-3 rounded-l-lg">Fecha</th>
-              <th class="px-4 py-3">Nombre</th>
-              <th class="px-4 py-3">WhatsApp</th>
-              <th class="px-4 py-3">Correo</th>
-              <th class="px-4 py-3">Programa y Modalidad</th>
-              <th class="px-4 py-3 rounded-r-lg">Promedio</th>
-            </tr>
-          </thead>
-          <tbody id="leads-table-body">
-            <!-- Filas dinámicas -->
-          </tbody>
-        </table>
-      </div>
-
-      <div class="p-4 bg-slate-100 border-t border-slate-200 text-right">
-        <button 
-          onclick="closeLeadsModal()" 
-          class="px-5 py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-xl transition"
-        >
-          Cerrar
-        </button>
-      </div>
-
-    </div>
-  </div>
 
   <!-- ============================================================
        15. NOTIFICACIÓN TOAST FLOTANTE
@@ -1183,22 +1057,6 @@
       const email = document.getElementById('hero-email').value.trim();
       const program = document.getElementById('hero-program').value;
       const modality = document.querySelector('input[name="hero-modality"]:checked')?.value || 'En Línea';
-
-      const newLead = {
-        id: Date.now(),
-        fecha: new Date().toLocaleString('es-MX'),
-        nombre: name,
-        telefono: phone,
-        email: email,
-        programa: program,
-        modalidad: modality,
-        promedio: "8.5",
-        campus: "Campus Central / En Línea"
-      };
-
-      const existingLeads = JSON.parse(localStorage.getItem('utc_school_leads') || '[]');
-      existingLeads.unshift(newLead);
-      localStorage.setItem('utc_school_leads', JSON.stringify(existingLeads));
 
       const waNumber = "527226119681";
       const waMessage = encodeURIComponent(
