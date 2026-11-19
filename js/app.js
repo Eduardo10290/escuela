@@ -261,46 +261,53 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // 6. REDES SOCIALES
+  // 6. REDES SOCIALES (arriba en la barra superior y abajo en el footer)
   // Pega aquí las URL completas de tus páginas oficiales.
-  // Si dejas una cadena vacía ('') ese botón no se muestra.
   // ============================================================
   const SOCIAL_LINKS = {
-    facebook: '',
-    instagram: '',
-    tiktok: '',
-    youtube: ''
+    facebook: '',   // ej. https://www.facebook.com/tu-pagina
+    instagram: ''   // ej. https://www.instagram.com/tu-cuenta
   };
 
   const SOCIAL_META = {
-    facebook: { label: 'Facebook', classes: 'bg-[#1877F2] hover:bg-[#0f63cc]' },
-    instagram: { label: 'Instagram', classes: 'bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] hover:opacity-90' },
-    tiktok: { label: 'TikTok', classes: 'bg-[#010101] hover:bg-[#1f1f1f]' },
-    youtube: { label: 'YouTube', classes: 'bg-[#FF0000] hover:bg-[#d90000]' }
+    facebook: {
+      label: 'Facebook',
+      classes: 'bg-[#1877F2] hover:bg-[#0f63cc]',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>'
+    },
+    instagram: {
+      label: 'Instagram',
+      classes: 'bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#F77737] hover:opacity-90',
+      svg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>'
+    }
   };
 
   function renderSocialLinks() {
-    const container = document.getElementById('social-links');
-    if (!container) return;
+    const entries = Object.entries(SOCIAL_LINKS).filter(([, url]) => url && url.trim() !== '');
 
-    const html = Object.entries(SOCIAL_LINKS)
-      .filter(([, url]) => url && url.trim() !== '')
-      .map(([key, url]) => {
+    const containers = [
+      { el: document.getElementById('social-top'), size: 'w-6 h-6 rounded-md', icon: 'w-3.5 h-3.5' },
+      { el: document.getElementById('social-links'), size: 'w-10 h-10 rounded-lg', icon: 'w-5 h-5' }
+    ];
+
+    containers.forEach(({ el, size, icon }) => {
+      if (!el) return;
+      el.innerHTML = entries.map(([key, url]) => {
         const meta = SOCIAL_META[key];
         return `
           <a
             href="${url}"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold text-white transition ${meta.classes}"
+            aria-label="${meta.label}"
+            title="${meta.label}"
+            class="${size} ${meta.classes} text-white flex items-center justify-center transition shadow-sm"
           >
-            ${meta.label}
+            <span class="${icon} block [&>svg]:w-full [&>svg]:h-full">${meta.svg}</span>
           </a>
         `;
-      })
-      .join('');
-
-    container.innerHTML = html;
+      }).join('');
+    });
   }
 
   // ============================================================
