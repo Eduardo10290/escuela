@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
       `🎓 *Programa:* ${prog.name}\n` +
       `📚 *Nivel:* ${prog.levelName}\n` +
       `✅ *Validez:* ${prog.validez}\n` +
-      `⏱️ *Duración:* ${prog.duration}\n` +
       `🏫 *Modalidades:* ${prog.modalities.join(', ')}\n\n` +
       `¿Me pueden enviar la información de inscripción y colegiatura?`
     );
