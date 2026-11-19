@@ -75,28 +75,28 @@
   ============================================================ -->
   <header class="sticky top-0 z-40 glass-header border-b border-slate-200/80 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-24 sm:h-28">
         
         <!-- Logo Institucional -->
         <a href="#" class="flex items-center gap-3 group">
           <img 
             src="img/logo-instituto-al.png" 
             alt="Logo Instituto Universitario A.L." 
-            class="h-14 w-14 sm:h-16 sm:w-16 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
+            class="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"
           />
           <div>
-            <span class="text-base sm:text-xl font-extrabold tracking-tight text-[#0B192C] block font-heading leading-tight">
+            <span class="text-sm sm:text-[22px] font-extrabold tracking-tight text-[#0B192C] block font-heading leading-tight whitespace-nowrap">
               INSTITUTO <span class="text-[#FF6500]">UNIVERSITARIO A.L.</span>
             </span>
-            <span class="text-[10px] tracking-wider uppercase font-semibold text-slate-500 block">
+            <span class="text-[11px] sm:text-xs tracking-wider uppercase font-semibold text-slate-500 block">
               La puerta al éxito
             </span>
           </div>
         </a>
 
         <!-- Enlaces de Navegación de Escritorio -->
-        <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-700 whitespace-nowrap">
-          <a href="#oferta" class="hover:text-[#FF6500] transition flex items-center gap-1">
+        <nav class="hidden md:flex items-center gap-4 text-sm font-medium text-slate-700 whitespace-nowrap">
+          <a href="#oferta" class="hover:text-[#FF6500] transition flex items-center gap-1 whitespace-nowrap">
             Oferta
             <span class="text-[10px] bg-orange-100 text-[#FF6500] font-bold px-1.5 py-0.5 rounded">25</span>
           </a>
@@ -112,7 +112,7 @@
         <div class="hidden sm:flex items-center gap-3">
           <a 
             href="#registro-aspirante" 
-            class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#FF6500] hover:bg-[#E55800] transition shadow-md shadow-orange-500/25 flex items-center gap-2 group whitespace-nowrap"
+            class="px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-[#FF6500] hover:bg-[#E55800] transition shadow-md shadow-orange-500/25 flex items-center gap-2 group whitespace-nowrap"
           >
             <span>Inscríbete Hoy</span>
             <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
@@ -375,7 +375,7 @@
       <div class="text-center max-w-3xl mx-auto mb-12">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold mb-3 uppercase tracking-wider">
           <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-          Oferta Académica 2026
+          Oferta Académica
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight">
           Elige el programa a tu medida
@@ -427,7 +427,7 @@
           </div>
           
           <h2 class="text-3xl sm:text-4xl font-extrabold text-[#0B192C] font-heading tracking-tight leading-snug">
-            Diseñamos planes a tu nivel para que mejores tu CV, encuentres empleo, le des valor a tu experiencia y aumentes tu sueldo
+            Diseñamos planes a tu medida para que mejores tu CV, encuentres empleo, le des valor a tu experiencia y aumentes tu sueldo
           </h2>
 
           <p class="text-slate-600 text-sm leading-relaxed">
@@ -971,9 +971,9 @@
             <img 
               src="img/logo-instituto-al.png" 
               alt="Logo Instituto Universitario A.L." 
-              class="h-16 w-16 object-contain rounded-lg bg-white p-1"
+              class="h-20 w-20 object-contain rounded-lg bg-white p-1"
             />
-            <span class="text-lg font-bold text-white font-heading">INSTITUTO UNIVERSITARIO A.L.</span>
+            <span class="text-xl font-bold text-white font-heading">INSTITUTO UNIVERSITARIO A.L.</span>
           </div>
           <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
             <span class="text-orange-400 font-semibold">La puerta al éxito.</span> Institución privada de educación superior dedicada a la formación de líderes con visión humanista, profesionalismo y pertinencia laboral.
@@ -984,6 +984,9 @@
             <p>✉️ Correo: informes@institutouniversitariola.edu.mx</p>
             <p>📍 <a href="#ubicacion" class="hover:text-white transition">Ver ubicación en el mapa</a></p>
           </div>
+
+          <!-- Redes sociales (se muestran solo las que tengan enlace configurado) -->
+          <div id="social-links" class="pt-3 flex flex-wrap items-center gap-2"></div>
         </div>
 
         <!-- Accesos Directos -->

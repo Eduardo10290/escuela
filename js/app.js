@@ -85,14 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <li class="px-5 sm:px-8 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-50 transition">
           <div class="min-w-0">
             <div class="flex flex-wrap items-center gap-2">
-              <p class="text-sm font-bold text-slate-800">${prog.name}</p>
+              <p class="text-base font-bold text-slate-800">${prog.name}</p>
               ${prog.note ? `<span class="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded-full">${prog.note}</span>` : ''}
-              ${prog.badge ? `<span class="text-[10px] font-bold uppercase tracking-wider text-orange-700 bg-orange-100 border border-orange-200 px-2 py-0.5 rounded-full">${prog.badge}</span>` : ''}
             </div>
-            <p class="text-[11px] text-slate-500 mt-1">
-              ${prog.duration} · ${prog.modalities.join(' / ')}
-              <span class="text-emerald-700 font-semibold"> · ${prog.validez}</span>
-            </p>
+            <p class="text-sm text-emerald-700 font-semibold mt-1">Validez SEP</p>
           </div>
           <button
             type="button"
@@ -265,7 +261,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Inicializar
+  // ============================================================
+  // 6. REDES SOCIALES
+  // Pega aquí las URL completas de tus páginas oficiales.
+  // Si dejas una cadena vacía ('') ese botón no se muestra.
+  // ============================================================
+  const SOCIAL_LINKS = {
+    facebook: '',
+    instagram: '',
+    tiktok: '',
+    youtube: ''
+  };
+
+  const SOCIAL_META = {
+    facebook: { label: 'Facebook', classes: 'bg-[#1877F2] hover:bg-[#0f63cc]' },
+    instagram: { label: 'Instagram', classes: 'bg-gradient-to-r from-[#833AB4] via-[#E1306C] to-[#F77737] hover:opacity-90' },
+    tiktok: { label: 'TikTok', classes: 'bg-[#010101] hover:bg-[#1f1f1f]' },
+    youtube: { label: 'YouTube', classes: 'bg-[#FF0000] hover:bg-[#d90000]' }
+  };
+
+  function renderSocialLinks() {
+    const container = document.getElementById('social-links');
+    if (!container) return;
+
+    const html = Object.entries(SOCIAL_LINKS)
+      .filter(([, url]) => url && url.trim() !== '')
+      .map(([key, url]) => {
+        const meta = SOCIAL_META[key];
+        return `
+          <a
+            href="${url}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold text-white transition ${meta.classes}"
+          >
+            ${meta.label}
+          </a>
+        `;
+      })
+      .join('');
+
+    container.innerHTML = html;
+  }
+
+  // ============================================================
+  // 7. INICIALIZACIÓN
+  // ============================================================
   populateProgramSelects();
   renderPrograms();
+  renderSocialLinks();
 });

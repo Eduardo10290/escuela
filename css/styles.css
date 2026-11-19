@@ -236,6 +236,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Evita que el header fijo tape los títulos al navegar con anclas (#oferta, #admisiones...) */
+html {
+  scroll-padding-top: 8rem;
+}
+
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: 'Plus Jakarta Sans', sans-serif;
   letter-spacing: -0.02em;
