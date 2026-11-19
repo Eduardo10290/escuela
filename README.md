@@ -63,7 +63,7 @@ Todos los programas se muestran con **Validez Oficial SEP**.
    - Explica el ingreso mediante un solo examen de admisión y la revalidación de materias para quienes ya cursaron estudios previos.
 
 5. **Galería Institucional:**
-   - Muestra las piezas promocionales del Instituto (Licenciatura, Maestría y Doctorado) con apertura de cada imagen en tamaño completo.
+   - Muestra la pieza de titulación (Licenciatura, Maestría y Doctorado) y fotografías reales de las aulas e instalaciones, con apertura de cada imagen en tamaño completo.
 
 6. **Ubicación:**
    - Mapa de Google integrado al final de la página para que los aspirantes localicen las instalaciones.
@@ -100,7 +100,7 @@ npx serve .
 - **Cambiar el logo de la escuela:** Reemplaza el archivo `img/logo-instituto-al.png` (se usa en el encabezado y el pie de página).
 - **Cambiar el icono de la escuela (favicon):** Reemplaza los archivos `favicon-16x16.png`, `favicon-32x32.png`, `favicon.ico` y `apple-touch-icon.png` en la raíz de la carpeta. Todos se generan a partir del logo institucional.
 - **Cambiar la lista de documentos:** Reemplaza `docs/lista-documentos-2026-2027.pdf` y actualiza el texto de la sección de inscripción en `index.html` si cambian los requisitos.
-- **Cambiar las imágenes promocionales:** Reemplaza los archivos `img/promo-01.jpg` a `img/promo-06.jpg` en la sección de galería.
+- **Cambiar las imágenes de la galería:** Reemplaza `img/promo-titulacion.jpg` (pieza de titulación) y las fotografías `img/aula-clase-ingles.jpg`, `img/aula-clase-comunicacion.jpg`, `img/aula-01.jpg`, `img/aula-02.jpg` y `img/aula-03.jpg` en la sección de galería.
 - **Cambiar los teléfonos:**
   - Teléfono fijo: busca `tel:+527221328421` y el texto `722 132 8421`.
   - WhatsApp: busca `527226119681` en `index.html` y en `js/app.js` (formato internacional sin signos: `52` + número).
