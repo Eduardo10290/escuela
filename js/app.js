@@ -283,7 +283,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function renderSocialLinks() {
-    const entries = Object.entries(SOCIAL_LINKS).filter(([, url]) => url && url.trim() !== '');
+    // Los iconos se muestran SIEMPRE. Si aún no hay URL, quedan visibles
+    // pero sin navegar (para activarlos basta con llenar SOCIAL_LINKS).
+    const entries = Object.entries(SOCIAL_LINKS);
 
     const containers = [
       { el: document.getElementById('social-top'), size: 'w-6 h-6 rounded-md', icon: 'w-3.5 h-3.5' },
@@ -294,17 +296,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!el) return;
       el.innerHTML = entries.map(([key, url]) => {
         const meta = SOCIAL_META[key];
+        const hasUrl = url && url.trim() !== '';
+        const tag = hasUrl ? 'a' : 'span';
+        const attrs = hasUrl
+          ? `href="${url}" target="_blank" rel="noopener noreferrer"`
+          : `role="img"`;
+
         return `
-          <a
-            href="${url}"
-            target="_blank"
-            rel="noopener noreferrer"
+          <${tag}
+            ${attrs}
             aria-label="${meta.label}"
             title="${meta.label}"
-            class="${size} ${meta.classes} text-white flex items-center justify-center transition shadow-sm"
+            class="${size} ${meta.classes} text-white flex items-center justify-center transition shadow-sm ${hasUrl ? 'cursor-pointer' : 'cursor-default'}"
           >
             <span class="${icon} block [&>svg]:w-full [&>svg]:h-full">${meta.svg}</span>
-          </a>
+          </${tag}>
         `;
       }).join('');
     });
