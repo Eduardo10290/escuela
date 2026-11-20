@@ -265,8 +265,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Pega aquí las URL completas de tus páginas oficiales.
   // ============================================================
   const SOCIAL_LINKS = {
-    facebook: '',   // ej. https://www.facebook.com/tu-pagina
-    instagram: ''   // ej. https://www.instagram.com/tu-cuenta
+    facebook: 'https://www.facebook.com/people/Instituto-Universitario-AL/61596388126228/',
+    instagram: 'https://www.instagram.com/instituto.universitarioal/'
   };
 
   const SOCIAL_META = {
